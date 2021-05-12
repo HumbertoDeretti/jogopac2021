@@ -7,6 +7,7 @@ public class Inicio {
 	public static void main(String[] args) {
 		new Menu();
 		System.out.println("Teste Tiago");
+		System.out.println("Teste Humberto11");
 	}
 
 }
