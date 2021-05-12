@@ -5,6 +5,7 @@ package br.edu.catolicasc.services;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import com.mysql.jdbc.Driver;
 
 /**
  * @author Projeto PACS
