@@ -7,8 +7,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * @author jjunkes
+ * @author Projeto PACS
  *
+ */
+/*
+Server: sql10.freemysqlhosting.net
+Name: sql10411872
+Username: sql10411872
+Password: 7dEvbLFuCI
+Port number: 3306
  */
 public class Mysql {
 	private Connection conn = null;
@@ -32,9 +39,8 @@ public class Mysql {
 		this.host = host;
 		this.port = port;
 		this.base = base;
-		Conectar();
 	}
-	private boolean Conectar() {
+	public boolean Conectar() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://"+this.host+":"+this.port+"/"+this.base+"",this.user,this.password);
