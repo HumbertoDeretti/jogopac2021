@@ -7,8 +7,10 @@ import br.edu.catolicasc.services.MysqlUtil;
 public class Inicio {
 
 	public static void main(String[] args) {
-		//new Menu();
 		MysqlUtil bd = new MysqlUtil();
+		Menu menu = new Menu();
+		menu.add(menu.jLabel("Boa Champs", 5, 100));
+		menu.isVisivle(true);
 		try {
 			if(!bd.ValidaUser("master", "master",bd.getInstance().getConnection())) {
 				System.out.println("Usuario ou senha inválido.");
