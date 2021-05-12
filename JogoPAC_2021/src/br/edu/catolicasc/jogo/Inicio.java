@@ -1,20 +1,24 @@
 package br.edu.catolicasc.jogo;
 
 import br.edu.catolicasc.jogo.modelo.Menu;
-import br.edu.catolicasc.services.Mysql;
+import br.edu.catolicasc.services.MysqlUtil;
 
 
 public class Inicio {
 
 	public static void main(String[] args) {
 		//new Menu();
-		Mysql bd = new Mysql("sql10411872","7dEvbLFuCI","sql10.freemysqlhosting.net","3306","sql10411872");
-		if(bd.Conectar()) {
-			System.out.println("Conectou");
+		MysqlUtil bd = new MysqlUtil();
+		try {
+			if(!bd.ValidaUser("master", "master",bd.getInstance().getConnection())) {
+				System.out.println("Usuario ou senha inválido.");
+			}else {
+				System.out.println("Conectado");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
 		}
-		else {
-			System.out.println("Deu Merda");
-		}
+		
 	}
 
 }
