@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  * @author jjunkes
  *
  */
-public class Componentes implements ActionListener {
+public class Componentes {
 	
 	public JTextField textBox(String texto,String id,int eixo_x,int eixo_y,int largura, int altura) {
 		JTextField txtBox = new JTextField(texto);
@@ -29,27 +29,14 @@ public class Componentes implements ActionListener {
 		lb.setName(id);
 		return lb;
 	}
-	public JButton button (String texto,String id,int eixo_x,int eixo_y,int largura, int altura,boolean areaFilled,boolean opaque) {
+	public JButton button (String texto,String id,int eixo_x,int eixo_y,int largura, int altura,boolean areaFilled,boolean opaque,ActionListener action) {
 		JButton bt = new JButton(texto);
 		bt.setName(id);
 		bt.setBounds(eixo_x,eixo_y, largura, altura);
 		bt.setContentAreaFilled(areaFilled);
 		bt.setOpaque(opaque);
-		bt.addActionListener(this);
+		bt.addActionListener(action);
 		return bt;
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		String origem =  e.getSource().toString().replace('[',',').replace(']',' ');
-		String[] obj = origem.split(",");
-		//obj[1]  Contém nome do componente setado pelo setName()
-		if(obj[1].equals("bt_logon")) {
-			System.out.println("Botao Logon Clicado");
-			
-		}
-		else if(obj[1].equals("bt_logoff")) {
-			System.out.println("Botao Logoff Clicado");
-		}
-		
-	}
+	
 }

@@ -3,13 +3,16 @@
  */
 package br.edu.catolicasc.jogo.modelo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 
 /**
  * @author Grupo PAC 3
  *
  */
-public class Menu extends JFrame {
+public class Menu extends JFrame implements ActionListener {
 
 	/**
 	 * 
@@ -30,8 +33,8 @@ public class Menu extends JFrame {
 		add(compo.textBox("", "txtLogin", 50, 10, 200, 30));
 		add(compo.label("Senha:", "lb_senha", 5, 50, 40, 30));
 		add(compo.textBox("", "txtSenha", 50, 50, 200, 30));
-		add(compo.button("LOGAR", "bt_logon", 5, 90,245, 30, true, true));
-		add(compo.button("DESCONECTAR", "bt_logoff", 5, 125,245, 30, true, true));
+		add(compo.button("LOGAR", "bt_logon", 5, 90,245, 30, true, true,this));
+		add(compo.button("DESCONECTAR", "bt_logoff", 5, 125,245, 30, true, true,this));
 		
 	}
 	
@@ -46,5 +49,19 @@ public class Menu extends JFrame {
 			this.repaint();
 		 * 
 		 */
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String origem =  e.getSource().toString().replace('[',',').replace(']',' ');
+		String[] obj = origem.split(",");
+		//obj[1]  Contém nome do componente setado pelo setName()
+		if(obj[1].equals("bt_logon")) {
+			System.out.println("Botao Logon Clicado");
+			
+		}
+		else if(obj[1].equals("bt_logoff")) {
+			System.out.println("Botao Logoff Clicado");
+		}
+		
 	}
 }
