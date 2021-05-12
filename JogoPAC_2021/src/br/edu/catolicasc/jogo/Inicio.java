@@ -8,6 +8,7 @@ public class Inicio {
 		new Menu();
 		System.out.println("Teste Tiago");
 		System.out.println("Teste Humberto11");
+		System.out.println("Tiago monstro 2");
 	}
 
 }
