@@ -4,8 +4,6 @@
 package br.edu.catolicasc.jogo.modelo;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 /**
  * @author Grupo PAC 3
@@ -17,38 +15,36 @@ public class Menu extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private Componentes compo;
 
 	public Menu() {
+		compo = new Componentes();
+		
 		setTitle("The Loggic Game");
 		setSize(1024, 728);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		this.setResizable(false);
 		setLayout(null);
-		
-		add(jLabel("Login:",5,10));
-		add(textBox("","txtLogin",60,10));
-		add(jLabel("Senha:",5,45));
-		add(textBox("","txtSenha",60,45));
-		
+		add(compo.label("Login:", "lb_login", 5, 10, 40, 30));
+		add(compo.textBox("", "txtLogin", 50, 10, 200, 30));
+		add(compo.label("Senha:", "lb_senha", 5, 50, 40, 30));
+		add(compo.textBox("", "txtSenha", 50, 50, 200, 30));
+		add(compo.button("LOGAR", "bt_logon", 5, 90,245, 30, true, true));
+		add(compo.button("DESCONECTAR", "bt_logoff", 5, 125,245, 30, true, true));
 		
 	}
-	private JTextField textBox(String texto,String name,int x,int y) {
-		JTextField textField = new JTextField();
-		textField.setBounds(x, y, 200, 30);
-		textField.setText(texto);
-		textField.setName(name);
-		return textField;
-	}
-	public JLabel jLabel (String texto,int x,int y) {
-		JLabel jLabel = new JLabel(texto);
-		jLabel.setBounds(x, y, 50, 30);
-		return jLabel;
-	}
+	
 	public void isVisivle(boolean var) {
 		setVisible(var);
 	}
 	public void refresh() {
 		this.repaint();
+		/*
+		 * this.invalidate();
+			this.validate();
+			this.repaint();
+		 * 
+		 */
 	}
 }
