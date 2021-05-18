@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import br.edu.catolicasc.services.MysqlUtil;
@@ -48,17 +49,18 @@ public class Login extends JFrame {
 		btLogin.setBackground(SystemColor.textHighlight);
 		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(txtLogin.getText());
-				System.out.println(txtSenha.getText());
+				
 				try {
-					if(!bd.ValidaUser("master", "master",bd.getInstance().getConnection())) {
+					if(!bd.ValidaUser(txtLogin.getText(), txtSenha.getText(),bd.getInstance().getConnection())) {
 						System.out.println("Usuario ou senha inválido.");
+						JOptionPane.showMessageDialog(null, "Digita certo que funciona...");
 					}else {
 						System.out.println("Conectado");
+						JOptionPane.showMessageDialog(null, "Acessou com sucesso o jogo.");
 					}
 				} catch (Exception ex) {
 					System.out.println(ex);
-					System.out.println("Errou baka");
+					JOptionPane.showMessageDialog(null, "Erro Desconhecido, verifique sua internet ou tente novamente mais tarde.");
 				}
 				
 			}

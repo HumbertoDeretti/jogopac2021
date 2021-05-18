@@ -8,7 +8,7 @@ import br.edu.catolicasc.services.MysqlUtil;
 public class Inicio {
 
 	public static void main(String[] args) {
-		MysqlUtil bd = new MysqlUtil();
+		
 		new Login();
 		/*
 		 * Menu menu = new Menu();
