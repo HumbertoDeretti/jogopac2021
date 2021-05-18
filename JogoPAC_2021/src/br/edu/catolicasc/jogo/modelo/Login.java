@@ -60,6 +60,7 @@ public class Login extends JFrame {
 					}
 				} catch (Exception ex) {
 					System.out.println(ex);
+					System.out.println(ex);
 					JOptionPane.showMessageDialog(null, "Erro Desconhecido, verifique sua internet ou tente novamente mais tarde.");
 				}
 				
