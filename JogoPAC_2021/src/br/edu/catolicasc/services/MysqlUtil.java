@@ -16,11 +16,11 @@ import java.sql.Statement;
  *
  */
 /*
-*Server: sql10.freemysqlhosting.net
-*Name: sql10411872
-*Username: sql10411872
-*Password: 7dEvbLFuCI
-*Port number: 3306
+*Server: 189.2.117.178
+*Name: game
+*Username: master
+*Password: master
+*Port number: 6603
  */
 public class MysqlUtil {
 	
@@ -32,6 +32,13 @@ public class MysqlUtil {
 	private boolean isValid;
 	private String sql;
 	
+	//private static String serverMysql = "189.2.117.178";//REMOTO
+	private static String serverMysql = "192.168.23.113";//LOCAL
+	//private static String portMysql = "6603";//REMOTO
+	private static String portMysql = "3306";//LOCAL
+	private static String dbaseMysql = "game";
+	
+	
 	public MysqlUtil getInstance() {
 		if(mysqlUtil == null) {
 			mysqlUtil = new MysqlUtil();
@@ -42,7 +49,7 @@ public class MysqlUtil {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10411872","sql10411872","7dEvbLFuCI");
+			conn = DriverManager.getConnection("jdbc:mysql://"+serverMysql+":"+portMysql+"/"+dbaseMysql,"master","master");
 		} catch (Exception e) {
 			
 		}
@@ -51,7 +58,7 @@ public class MysqlUtil {
 	
 	public boolean ValidaUser(String usuario, String senha,Connection conn)  {
 		isValid = false;
-		sql = "select login from TESTE where LOGIN=\'"+usuario+"\' and SENHA=\'"+senha+"\'";
+		sql = "select login from LOGIN where LOGIN=\'"+usuario+"\' and SENHA=\'"+senha+"\'";
 		try {
 			statement = conn.createStatement();
 			resultSet = statement.executeQuery(sql);
