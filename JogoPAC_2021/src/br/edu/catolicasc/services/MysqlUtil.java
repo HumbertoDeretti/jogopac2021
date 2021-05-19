@@ -23,7 +23,7 @@ import java.sql.Statement;
 *Port number: 6603
  */
 public class MysqlUtil {
-	
+	private Encrypt encrypt;
 	private Connection conn = null;
 	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
@@ -38,10 +38,13 @@ public class MysqlUtil {
 	private static String portMysql = "3306";//LOCAL
 	private static String dbaseMysql = "game";
 	
+	public MysqlUtil() {
+		encrypt = new Encrypt();
+	}
 	
 	public MysqlUtil getInstance() {
 		if(mysqlUtil == null) {
-			mysqlUtil = new MysqlUtil();
+			mysqlUtil = new MysqlUtil();			
 		}
 		return mysqlUtil;
 	}
@@ -57,17 +60,21 @@ public class MysqlUtil {
 	}
 	
 	public boolean ValidaUser(String usuario, String senha,Connection conn)  {
+		String pwd = encrypt.gerarMD5(senha);
 		isValid = false;
-		sql = "select login from LOGIN where LOGIN=\'"+usuario+"\' and SENHA=\'"+senha+"\'";
+		sql = "select senha from LOGIN where LOGIN=\'"+usuario+"\' and SENHA=\'"+pwd+"\'";
 		try {
 			statement = conn.createStatement();
 			resultSet = statement.executeQuery(sql);
 			while (resultSet.next()) {
-				String user_temp = resultSet.getString("login");
-				if(user_temp.equals(usuario)) {
-					isValid=true;
-				}
+				String pwdHash = resultSet.getString("senha");
 				
+				if(encrypt.validMD5(senha, pwdHash)) {
+					isValid=encrypt.validMD5(senha, pwdHash);
+				}
+				else {
+					isValid=false;
+				}
 			}
 		} catch (Exception e) {
 			System.out.println(e);
