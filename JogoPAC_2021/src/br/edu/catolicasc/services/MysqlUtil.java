@@ -82,6 +82,7 @@ public class MysqlUtil {
 		return isValid;
 	}
 	
+	
 	public void Close() {
 		try {
 			conn.close();
