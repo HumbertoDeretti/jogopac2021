@@ -17,6 +17,7 @@ import java.sql.Statement;
  */
 /*
 *Server: 189.2.117.178
+*Server2: 186.235.59.27
 *Name: game
 *Username: master
 *Password: master
@@ -32,10 +33,10 @@ public class MysqlUtil {
 	private boolean isValid;
 	private String sql;
 	
-	//private static String serverMysql = "189.2.117.178";//REMOTO
-	private static String serverMysql = "192.168.23.113";//LOCAL
-	//private static String portMysql = "6603";//REMOTO
-	private static String portMysql = "3306";//LOCAL
+	private static String serverMysql = "189.2.117.178";//REMOTO
+	//private static String serverMysql = "192.168.23.113";//LOCAL
+	private static String portMysql = "6603";//REMOTO
+	//private static String portMysql = "3306";//LOCAL
 	private static String dbaseMysql = "game";
 	
 	public MysqlUtil() {

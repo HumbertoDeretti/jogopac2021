@@ -2,6 +2,7 @@ package br.edu.catolicasc.jogo.modelo;
 
 
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,6 +19,8 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JPasswordField;
 
 public class Login extends JFrame {
@@ -89,7 +92,7 @@ public class Login extends JFrame {
 		getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
 		
-		JLabel lbBackgroud = new JLabel(imageResource("a"));
+		JLabel lbBackgroud = new JLabel(imageResource("wpBrain.png",0,0));
 		lbBackgroud.setBounds(0, 0, 1024, 576);
 		getContentPane().add(lbBackgroud);
 		
@@ -99,9 +102,15 @@ public class Login extends JFrame {
 		
 
 	}
-	private ImageIcon imageResource(String path) {
+	private ImageIcon imageResource(String path,int w,int h) {
+		
 		ImageIcon img;
-		img = new ImageIcon(getClass().getResource("/resources/wpBrain.png"));
+		if(w==0) {
+			img = new ImageIcon(getClass().getResource("/resources/"+path));
+		}else {
+			img = new ImageIcon(new ImageIcon(getClass().getResource("/resources/"+path)).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
+		}
+		
 		return img;
 		
 	}
