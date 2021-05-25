@@ -40,10 +40,10 @@ public class MenuJogo extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel_1 = new JLabel(imageResource("SalaDeAula.png",0,0));
-		lblNewLabel_1.setIcon(new ImageIcon(MenuJogo.class.getResource("/resources/QuadroBranco.png")));
-		lblNewLabel_1.setSize(434, 404);
-		contentPane.add(lblNewLabel_1);
+		//JLabel lblNewLabel_1 = new JLabel(imageResource("SalaDeAula.png",0,0));
+		//lblNewLabel_1.setIcon(new ImageIcon(MenuJogo.class.getResource("/resources/QuadroBranco.png")));
+		//lblNewLabel_1.setSize(434, 404);
+		//contentPane.add(lblNewLabel_1);
 		
 		
 		
@@ -58,8 +58,6 @@ public class MenuJogo extends JFrame {
 	}
 	
 	public void imageResource(String path, int x, int y) {
-		
-		
 		
 	}
 }
