@@ -17,6 +17,7 @@ import java.sql.Statement;
  */
 /*
 *Server: 189.2.117.178
+*Server2: 186.235.59.27
 *Name: game
 *Username: master
 *Password: master
