@@ -103,6 +103,8 @@ public class TelaRanking extends JFrame {
 		pontuacao5.setBounds(520, 350, 274, 31);
 		getContentPane().add(pontuacao5);
 		
+		//a
+		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(TelaRanking.class.getResource("/resources/fundoranking2.jpg")));
 		lblNewLabel.setBounds(0, 0, 1024, 615);
