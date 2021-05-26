@@ -22,6 +22,8 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.JPasswordField;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Login extends JFrame {
 	/**
@@ -32,6 +34,7 @@ public class Login extends JFrame {
 	private JTextField txtSenha;
 	private JPasswordField passwordField;
     private MysqlUtil bd;
+    private JTable table;
 	
 	public Login() {
 		bd = new MysqlUtil();
@@ -95,6 +98,17 @@ public class Login extends JFrame {
 		JLabel lbBackgroud = new JLabel(imageResource("wpBrain.png",0,0));
 		lbBackgroud.setBounds(0, 0, 1024, 576);
 		getContentPane().add(lbBackgroud);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"A", "New column", "New column"
+			}
+		));
+		table.setBounds(188, 181, 1, 1);
+		getContentPane().add(table);
 		
 	
 		
