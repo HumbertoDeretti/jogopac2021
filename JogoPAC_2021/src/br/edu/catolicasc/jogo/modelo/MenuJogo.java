@@ -48,7 +48,7 @@ public class MenuJogo extends JFrame {
 		
 		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Jogar");
 		lblNewJgoodiesLabel.setForeground(new Color(255, 255, 255));
-		lblNewJgoodiesLabel.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 33));
+		lblNewJgoodiesLabel.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 34));
 		lblNewJgoodiesLabel.setBounds(230, 195, 85, 60);
 		contentPane.add(lblNewJgoodiesLabel);
 		
