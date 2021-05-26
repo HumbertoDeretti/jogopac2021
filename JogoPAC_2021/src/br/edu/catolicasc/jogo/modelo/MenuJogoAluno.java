@@ -16,7 +16,7 @@ import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
 import java.awt.Color;
 
-public class MenuJogo extends JFrame {
+public class MenuJogoAluno extends JFrame {
 
 	private JPanel contentPane;
 
@@ -27,7 +27,7 @@ public class MenuJogo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MenuJogo frame = new MenuJogo();
+					MenuJogoAluno frame = new MenuJogoAluno();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class MenuJogo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuJogo() {
+	public MenuJogoAluno() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024, 728);
 		contentPane = new JPanel();
