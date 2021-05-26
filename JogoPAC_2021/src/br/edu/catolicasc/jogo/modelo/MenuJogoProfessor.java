@@ -49,7 +49,7 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewJgoodiesTitle.setBounds(540, 110, 340, 65);
 		contentPane.add(lblNewJgoodiesTitle);
 		
-		JLabel lblNewJgoodiesTitle_1 = DefaultComponentFactory.getInstance().createTitle("Professor");
+		JLabel lblNewJgoodiesTitle_1 = new JLabel("Professor");
 		lblNewJgoodiesTitle_1.setForeground(new Color(173, 255, 47));
 		lblNewJgoodiesTitle_1.setFont(new Font("Wide Latin", Font.PLAIN, 36));
 		lblNewJgoodiesTitle_1.setBounds(580, 140, 340, 65);
