@@ -110,7 +110,7 @@ public class Login extends JFrame {
 		table.setBounds(188, 181, 1, 1);
 		getContentPane().add(table);
 		
-	
+		
 		
 		setVisible(true);
 		
