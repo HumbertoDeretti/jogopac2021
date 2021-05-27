@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Color;
 
 public class MenuJogoProfessor extends JFrame {
@@ -55,7 +54,7 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewJgoodiesTitle_1.setBounds(580, 140, 340, 65);
 		contentPane.add(lblNewJgoodiesTitle_1);
 		
-		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("Cadastro de Turma");
+		JLabel lblNewJgoodiesLabel_1 = new JLabel("Cadastro de Turma");
 		lblNewJgoodiesLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewJgoodiesLabel_1.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		lblNewJgoodiesLabel_1.setBounds(700, 230, 160, 65);
@@ -64,7 +63,7 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewLabel_6.setBounds(675, 230, 200, 75);
 		contentPane.add(lblNewLabel_6);
 		
-		JLabel lblNewJgoodiesLabel_2 = DefaultComponentFactory.getInstance().createLabel("Cadastro de Aluno");
+		JLabel lblNewJgoodiesLabel_2 = new JLabel("Cadastro de Aluno");
 		lblNewJgoodiesLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewJgoodiesLabel_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		lblNewJgoodiesLabel_2.setBounds(575, 315, 160, 65);
@@ -73,7 +72,7 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewLabel_5.setBounds(555, 310, 200, 75);
 		contentPane.add(lblNewLabel_5);
 		
-		JLabel lblNewJgoodiesLabel_3 = DefaultComponentFactory.getInstance().createLabel("Ranking da Turma");
+		JLabel lblNewJgoodiesLabel_3 =  new JLabel("Ranking da Turma");
 		lblNewJgoodiesLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewJgoodiesLabel_3.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		lblNewJgoodiesLabel_3.setBounds(700, 390, 160, 65);
@@ -82,7 +81,7 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewLabel_4.setBounds(675, 390, 200, 75);
 		contentPane.add(lblNewLabel_4);
 		
-		JLabel lblNewJgoodiesLabel_4 = DefaultComponentFactory.getInstance().createLabel("Ranking de Alunos");
+		JLabel lblNewJgoodiesLabel_4 =  new JLabel("Ranking de Alunos");
 		lblNewJgoodiesLabel_4.setForeground(new Color(255, 255, 255));
 		lblNewJgoodiesLabel_4.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		lblNewJgoodiesLabel_4.setBounds(575, 475, 160, 65);

@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.Font;
 import java.awt.Color;
 
@@ -46,19 +45,19 @@ public class MenuJogoAluno extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Jogar");
+		JLabel lblNewJgoodiesLabel =  new JLabel("Jogar");
 		lblNewJgoodiesLabel.setForeground(new Color(255, 255, 255));
 		lblNewJgoodiesLabel.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 33));
 		lblNewJgoodiesLabel.setBounds(230, 195, 85, 60);
 		contentPane.add(lblNewJgoodiesLabel);
 		
-		JLabel lblNewJgoodiesLabel_1 = DefaultComponentFactory.getInstance().createLabel("Ranking da Turma");
+		JLabel lblNewJgoodiesLabel_1 =  new JLabel("Ranking da Turma");
 		lblNewJgoodiesLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewJgoodiesLabel_1.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		lblNewJgoodiesLabel_1.setBounds(198, 275, 150, 60);
 		contentPane.add(lblNewJgoodiesLabel_1);
 		
-		JLabel lblNewJgoodiesLabel_2 = DefaultComponentFactory.getInstance().createLabel("Ranking do Aluno");
+		JLabel lblNewJgoodiesLabel_2 =  new JLabel("Ranking do Aluno");
 		lblNewJgoodiesLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewJgoodiesLabel_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		lblNewJgoodiesLabel_2.setBounds(205, 345, 150, 60);
@@ -84,13 +83,13 @@ public class MenuJogoAluno extends JFrame {
 		lblNewLabel_5.setBounds(465, 120, 225, 225);
 		contentPane.add(lblNewLabel_5);
 		
-		JLabel lblNewJgoodiesTitle = DefaultComponentFactory.getInstance().createTitle("Cerebelo Brain");
+		JLabel lblNewJgoodiesTitle =  new JLabel("Cerebelo Brain");
 		lblNewJgoodiesTitle.setForeground(new Color(0, 191, 255));
 		lblNewJgoodiesTitle.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		lblNewJgoodiesTitle.setBounds(135, 60, 300, 100);
 		contentPane.add(lblNewJgoodiesTitle);
 		
-		JLabel lblNewJgoodiesTitle_1 = DefaultComponentFactory.getInstance().createTitle("Game");
+		JLabel lblNewJgoodiesTitle_1 =  new JLabel("Game");
 		lblNewJgoodiesTitle_1.setForeground(new Color(255, 165, 0));
 		lblNewJgoodiesTitle_1.setFont(new Font("Tahoma", Font.PLAIN, 40));
 		lblNewJgoodiesTitle_1.setBounds(287, 100, 114, 100);
