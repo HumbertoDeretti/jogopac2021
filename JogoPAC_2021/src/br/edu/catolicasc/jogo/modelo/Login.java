@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 
 import java.awt.event.ActionListener;
@@ -35,6 +36,8 @@ public class Login extends JFrame {
 	private JPasswordField passwordField;
     private MysqlUtil bd;
     private JTable table;
+    
+    private ComponentesUtils cUtils;
 	
 	public Login() {
 		bd = new MysqlUtil();
@@ -95,7 +98,7 @@ public class Login extends JFrame {
 		getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
 		
-		JLabel lbBackgroud = new JLabel(imageResource("wpBrain.png",0,0));
+		JLabel lbBackgroud = new JLabel(cUtils.imageResource("wpBrain.png",0,0));
 		lbBackgroud.setBounds(0, 0, 1024, 576);
 		getContentPane().add(lbBackgroud);
 		
@@ -116,16 +119,5 @@ public class Login extends JFrame {
 		
 
 	}
-	private ImageIcon imageResource(String path,int w,int h) {
-		
-		ImageIcon img;
-		if(w==0) {
-			img = new ImageIcon(getClass().getResource("/resources/"+path));
-		}else {
-			img = new ImageIcon(new ImageIcon(getClass().getResource("/resources/"+path)).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
-		}
-		
-		return img;
-		
-	}
+	
 }
