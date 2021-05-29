@@ -7,8 +7,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.Hashtable;
+import java.util.LinkedList;
 
 
 /**
@@ -19,7 +21,7 @@ import java.sql.Statement;
 *Server: 189.2.117.178
 *Server2: 186.235.59.27
 *Name: game
-*Username: master
+*User name: master
 *Password: master
 *Port number: 6603
  */
@@ -27,6 +29,7 @@ public class MysqlUtil {
 	private Encrypt encrypt;
 	private Connection conn = null;
 	private Statement statement = null;
+	@SuppressWarnings("unused")
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 	private static MysqlUtil mysqlUtil;
@@ -83,6 +86,37 @@ public class MysqlUtil {
 		return isValid;
 	}
 	
+	public LinkedList<Hashtable<String,String>> UserDados(String usuario,Connection conn) {
+		resultSet = null;
+		LinkedList<Hashtable<String,String>> list = new LinkedList<>();
+		sql = "select * from DADOS_GERAIS where UPPER(LOGIN)=\'"+usuario.toUpperCase()+"\'";
+		try {
+			statement = conn.createStatement();
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Hashtable<String, String> currentRowMap = new Hashtable<>();
+				ResultSetMetaData rsmd = resultSet.getMetaData();
+				int columnCount = rsmd.getColumnCount();
+				for (int i = 1; i <= columnCount; i++) {
+			        // retrieves column name and value.
+			        String key = rsmd.getColumnLabel(i);
+			        String value = resultSet.getString(rsmd.getColumnName(i));
+			        if (value == null) {
+			            value = "null";
+			        }
+			        currentRowMap .put(key, value);
+			
+			    }
+				list.add(currentRowMap);
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		
+		return list;
+		
+		
+	}
 	
 	public void Close() {
 		try {

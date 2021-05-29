@@ -1,19 +1,20 @@
 package br.edu.catolicasc.jogo.modelo;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
-import javax.swing.SwingConstants;
-import javax.swing.DropMode;
 
 public class TelaRanking extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7304639996686864599L;
+	@SuppressWarnings("unused")
 	private JPanel contentPane;
 
 	/**

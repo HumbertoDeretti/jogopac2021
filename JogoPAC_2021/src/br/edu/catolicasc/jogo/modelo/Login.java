@@ -1,9 +1,6 @@
 package br.edu.catolicasc.jogo.modelo;
 
 
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
@@ -16,12 +13,9 @@ import br.edu.catolicasc.services.MysqlUtil;
 
 import java.awt.event.ActionListener;
 
-import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Font;
-import java.awt.Image;
-
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -33,14 +27,16 @@ public class Login extends JFrame {
 	private static final long serialVersionUID = 2438794617558804165L;
 	private JTextField txtLogin;
 	private JTextField txtSenha;
-	private JPasswordField passwordField;
-    private MysqlUtil bd;
+	private MysqlUtil bd;
     private JTable table;
-    
     private ComponentesUtils cUtils;
-	
+	@SuppressWarnings("unused")
+	private UsuarioAtivo userAtivo;
+    
+    
 	public Login() {
 		bd = new MysqlUtil();
+		cUtils = new ComponentesUtils();
 		
 		setBackground(SystemColor.menu);
 		
@@ -58,14 +54,20 @@ public class Login extends JFrame {
 		btLogin.setBackground(SystemColor.textHighlight);
 		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				String usuario = txtLogin.getText();
 				try {
-					if(!bd.ValidaUser(txtLogin.getText(), txtSenha.getText(),bd.getInstance().getConnection())) {
+					if(!bd.ValidaUser(usuario, txtSenha.getText(),bd.getInstance().getConnection())) {
 						System.out.println("Usuario ou senha inválido.");
 						JOptionPane.showMessageDialog(null, "Digita certo que funciona...");
+						userAtivo = null;
 					}else {
 						System.out.println("Conectado");
-						JOptionPane.showMessageDialog(null, "Acessou com sucesso o jogo.");
+						//JOptionPane.showMessageDialog(null, "Acessou com sucesso o jogo.");
+						System.out.println("73");
+						userAtivo = new UsuarioAtivo(usuario);
+						System.out.println("74");
+						new PrintUsuarioAtivo(usuario);
+						setVisible(false);
 					}
 				} catch (Exception ex) {
 					System.out.println(ex);
@@ -119,5 +121,6 @@ public class Login extends JFrame {
 		
 
 	}
+	
 	
 }

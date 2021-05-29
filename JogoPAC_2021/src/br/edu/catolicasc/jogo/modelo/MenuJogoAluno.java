@@ -1,22 +1,20 @@
 package br.edu.catolicasc.jogo.modelo;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Image;
-import java.text.Normalizer.Form;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import java.awt.Font;
 import java.awt.Color;
 
 public class MenuJogoAluno extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7168976433054476308L;
 	private JPanel contentPane;
 
 	/**
