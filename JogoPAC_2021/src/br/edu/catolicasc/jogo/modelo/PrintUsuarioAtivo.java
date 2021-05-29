@@ -33,7 +33,7 @@ public class PrintUsuarioAtivo extends JFrame {
 		lbNomeInfo.setBounds(66, 11, 125, 14);
 		getContentPane().add(lbNomeInfo);
 	
-		lbNomeInfo.setText(UsuarioAtivo.getNome());
+		lbNomeInfo.setText(UsuarioAtivo.getNome());//EXEMPLO DE COMO CHAMAR UM DADO DO USUARIO ATIVO
 		
 		setVisible(true);
 		printDados();
