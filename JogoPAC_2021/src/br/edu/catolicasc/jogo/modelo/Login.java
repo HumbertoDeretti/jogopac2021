@@ -56,7 +56,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String usuario = txtLogin.getText();
 				try {
-					if(!bd.ValidaUser(usuario, txtSenha.getText(),bd.getInstance().getConnection())) {
+					if(!bd.validaUser(usuario, txtSenha.getText(),bd.getInstance().getConnection())) {
 						System.out.println("Usuario ou senha inválido.");
 						JOptionPane.showMessageDialog(null, "Digita certo que funciona...");
 						userAtivo = null;

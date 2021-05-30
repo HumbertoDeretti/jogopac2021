@@ -17,7 +17,7 @@ public class UsuarioAtivo{
 	private static Encrypt encrypt;
 	private MysqlUtil bd;
 	
-	private static String idPessoa;
+	private static int idPessoa;
 	private static String idade; 
 	private static String nome;
 	private static String dtCriacao;
@@ -41,9 +41,9 @@ public class UsuarioAtivo{
 	}
 	private void gerarDados(String usuario) {
 		 int index = 0;
-		 list = bd.UserDados(usuario,bd.getInstance().getConnection());
+		 list = bd.userDados(usuario,bd.getInstance().getConnection());
 		 
-		 UsuarioAtivo.idPessoa = list.get(index).get("ID_PESSOA");
+		 UsuarioAtivo.idPessoa = Integer.parseInt(list.get(index).get("ID_PESSOA"));
 		 UsuarioAtivo.idade = list.get(index).get("IDADE");
 		 UsuarioAtivo.nome = list.get(index).get("NOME");
 		 UsuarioAtivo.dtCriacao = list.get(index).get("DT_CRIACAO");
@@ -58,7 +58,7 @@ public class UsuarioAtivo{
 	}
 	
 
-	public static String getIdPessoa() {
+	public static int getIdPessoa() {
 		return idPessoa;
 	}
 	public static String getIdade() {

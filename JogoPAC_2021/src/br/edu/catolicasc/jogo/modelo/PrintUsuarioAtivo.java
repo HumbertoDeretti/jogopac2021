@@ -3,6 +3,10 @@ package br.edu.catolicasc.jogo.modelo;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.SystemColor;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class PrintUsuarioAtivo extends JFrame {
 	
@@ -34,6 +38,16 @@ public class PrintUsuarioAtivo extends JFrame {
 		getContentPane().add(lbNomeInfo);
 	
 		lbNomeInfo.setText(UsuarioAtivo.getNome());//EXEMPLO DE COMO CHAMAR UM DADO DO USUARIO ATIVO
+		
+		JButton btnNewButton = new JButton("Cadastrar S\u00E9rie");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new TesteCadastroSerie();
+			}
+		});
+		btnNewButton.setBounds(331, 72, 190, 41);
+		getContentPane().add(btnNewButton);
 		
 		setVisible(true);
 		printDados();

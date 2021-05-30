@@ -63,7 +63,7 @@ public class MysqlUtil {
 		return conn;
 	}
 	
-	public boolean ValidaUser(String usuario, String senha,Connection conn)  {
+	public boolean validaUser(String usuario, String senha,Connection conn)  {
 		String pwd = encrypt.gerarMD5(senha);
 		isValid = false;
 		sql = "select senha from LOGIN where LOGIN=\'"+usuario+"\' and SENHA=\'"+pwd+"\'";
@@ -86,7 +86,7 @@ public class MysqlUtil {
 		return isValid;
 	}
 	
-	public LinkedList<Hashtable<String,String>> UserDados(String usuario,Connection conn) {
+	public LinkedList<Hashtable<String,String>> userDados(String usuario,Connection conn) {
 		resultSet = null;
 		LinkedList<Hashtable<String,String>> list = new LinkedList<>();
 		sql = "select * from DADOS_GERAIS where UPPER(LOGIN)=\'"+usuario.toUpperCase()+"\'";
@@ -117,8 +117,17 @@ public class MysqlUtil {
 		
 		
 	}
+	public void newSerie(String nome,Connection conn) {
+		System.out.println(conn);
+		Cadastros.novaSerie(nome, conn);
+	}
 	
-	public void Close() {
+	public void newTurma(String nome,int idSerie,Connection conn) {
+		System.out.println(conn);
+		Cadastros.novaTurma(nome,idSerie, conn);
+	}
+	
+	public void close() {
 		try {
 			conn.close();
 		} catch (Exception e) {
