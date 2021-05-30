@@ -86,6 +86,35 @@ public class MysqlUtil {
 		return isValid;
 	}
 	
+	public LinkedList<Hashtable<String,String>> listarDados(String table) {
+		resultSet = null;
+		LinkedList<Hashtable<String,String>> list = new LinkedList<>();
+		sql = "select * from "+table.toUpperCase();
+		try {
+			statement = conn.createStatement();
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Hashtable<String, String> currentRowMap = new Hashtable<>();
+				ResultSetMetaData rsmd = resultSet.getMetaData();
+				int columnCount = rsmd.getColumnCount();
+				for (int i = 1; i <= columnCount; i++) {			    
+			        String key = rsmd.getColumnLabel(i);
+			        String value = resultSet.getString(rsmd.getColumnName(i));
+			        if (value == null) {
+			            value = "null";
+			        }
+			        currentRowMap .put(key, value);
+			
+			    }
+				list.add(currentRowMap);
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		
+		return list;
+	}
+	
 	public LinkedList<Hashtable<String,String>> userDados(String usuario,Connection conn) {
 		resultSet = null;
 		LinkedList<Hashtable<String,String>> list = new LinkedList<>();
