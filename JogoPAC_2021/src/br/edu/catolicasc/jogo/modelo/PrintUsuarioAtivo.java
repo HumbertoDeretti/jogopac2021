@@ -7,6 +7,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.Choice;
 
 public class PrintUsuarioAtivo extends JFrame {
 	
@@ -48,6 +53,10 @@ public class PrintUsuarioAtivo extends JFrame {
 		});
 		btnNewButton.setBounds(331, 72, 190, 41);
 		getContentPane().add(btnNewButton);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(215, 261, 206, 21);
+		getContentPane().add(comboBox);
 		
 		setVisible(true);
 		printDados();
