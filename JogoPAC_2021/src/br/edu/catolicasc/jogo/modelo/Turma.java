@@ -7,37 +7,38 @@ import java.sql.SQLException;
 
 import javax.swing.JComboBox;
 
-public class Serie {
-	private int idSerie;
+public class Turma {
+	
+	private int idTurma;
 	private String nome;
 	
-	public Serie() {
+	public Turma() {
 		
 	}
-	public Serie(int idSerie,String nome) {
-		this.idSerie = idSerie;
+	public Turma(int idTurma,String nome) {
+		this.idTurma = idTurma;
 		this.nome = nome;
 	}
 	public int getId() {
-		return idSerie;
+		return idTurma;
 	}
-	public void setIdSerie(int idSerie) {
-		this.idSerie = idSerie;
+	public void setIdTurma(int idTurma) {
+		this.idTurma = idTurma;
 	}
 	@Override
 	public String toString() {
 		return nome;
 	}
-	
-	public void show(JComboBox <Serie> comboProduct,Connection conn){
+
+	public void show(JComboBox <Turma> comboProduct,Connection conn){
 	    ResultSet res = null;
 	    try {
 	        
-	        String query = "select id_serie, nome from SERIE";
+	        String query = "SELECT A.ID_TURMA,A.NOME FROM TURMA A INNER JOIN PROFESSORES P ON A.ID_TURMA = P.ID_TURMA WHERE P.ID_PESSOA = " + Integer.toString(UsuarioAtivo.getIdPessoa());
 	        PreparedStatement ps = conn.prepareStatement(query);
 	        res = ps.executeQuery();
 	        while (res.next()) {
-	            comboProduct.addItem(new Serie(res.getInt("ID_SERIE"), res.getString("NOME")));
+	            comboProduct.addItem(new Turma(res.getInt("ID_TURMA"), res.getString("NOME")));
 	        }
 	        res.close();
 	    } catch (SQLException e) {
@@ -45,5 +46,4 @@ public class Serie {
 	    }
 
 	}
-	
 }

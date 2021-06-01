@@ -5,6 +5,10 @@ import javax.swing.JLabel;
 import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JTable;
@@ -22,7 +26,7 @@ public class PrintUsuarioAtivo extends JFrame {
 	
 	
 	
-	public PrintUsuarioAtivo(String usuario) {
+	public PrintUsuarioAtivo(String usuario,Connection conn) {
 		
 		
 		setBackground(SystemColor.menu);
@@ -54,15 +58,34 @@ public class PrintUsuarioAtivo extends JFrame {
 		btnNewButton.setBounds(331, 72, 190, 41);
 		getContentPane().add(btnNewButton);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(215, 261, 206, 21);
-		getContentPane().add(comboBox);
+		JComboBox<Serie> cbSerie = new JComboBox<Serie>();
+		cbSerie.setBounds(10, 261, 221, 21);
+		Serie cbSerieModel = new Serie();
+		cbSerieModel.show(cbSerie, conn);
+		getContentPane().add(cbSerie);
+		
+		JComboBox<Turma> cbTurma = new JComboBox<Turma>();
+		cbTurma.setBounds(300, 261, 221, 21);
+		Turma cbTurmaModel = new Turma();
+		cbTurmaModel.show(cbTurma, conn);
+		getContentPane().add(cbTurma);
+		
+		
+		JButton btnNewButton_1 = new JButton("Print");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println(cbSerie.getItemAt(cbSerie.getSelectedIndex()).getId());
+				System.out.println(cbTurma.getItemAt(cbTurma.getSelectedIndex()).getId());
+			}
+		});
+		btnNewButton_1.setBounds(576, 261, 85, 21);
+		getContentPane().add(btnNewButton_1);
 		
 		setVisible(true);
-		printDados();
+		
 	}
 	
-	public void printDados() {
-		System.out.println(UsuarioAtivo.getNome());
-	}
+	
+	
+	
 }

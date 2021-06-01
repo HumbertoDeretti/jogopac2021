@@ -35,6 +35,7 @@ public class MysqlUtil {
 	private static MysqlUtil mysqlUtil;
 	private boolean isValid;
 	private String sql;
+
 	
 	private static String serverMysql = "189.2.117.178";//REMOTO
 	//private static String serverMysql = "192.168.23.113";//LOCAL
@@ -104,7 +105,7 @@ public class MysqlUtil {
 			            value = "null";
 			        }
 			        currentRowMap .put(key, value);
-			
+			        
 			    }
 				list.add(currentRowMap);
 			}

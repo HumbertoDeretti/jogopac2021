@@ -63,10 +63,10 @@ public class Login extends JFrame {
 					}else {
 						System.out.println("Conectado");
 						//JOptionPane.showMessageDialog(null, "Acessou com sucesso o jogo.");
-						System.out.println("73");
+						
 						userAtivo = new UsuarioAtivo(usuario);
-						System.out.println("74");
-						new PrintUsuarioAtivo(usuario);
+						
+						new PrintUsuarioAtivo(usuario,bd.getInstance().getConnection());
 						setVisible(false);
 					}
 				} catch (Exception ex) {
