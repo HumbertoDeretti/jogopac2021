@@ -6,8 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MenuJogoAluno extends JFrame {
 
@@ -19,7 +23,7 @@ public class MenuJogoAluno extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+	 *//*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -31,7 +35,7 @@ public class MenuJogoAluno extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -49,11 +53,20 @@ public class MenuJogoAluno extends JFrame {
 		lblNewJgoodiesLabel.setBounds(230, 195, 85, 60);
 		contentPane.add(lblNewJgoodiesLabel);
 		
-		JLabel lblNewJgoodiesLabel_1 =  new JLabel("Ranking da Turma");
-		lblNewJgoodiesLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewJgoodiesLabel_1.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
-		lblNewJgoodiesLabel_1.setBounds(198, 275, 150, 60);
-		contentPane.add(lblNewJgoodiesLabel_1);
+		JButton btRankingTurma =  new JButton("Ranking da Turma");
+		btRankingTurma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new TelaRanking();
+				setVisible(false);
+			}
+		});
+		//btRankingTurma.setForeground(new Color(255, 255, 255));
+		btRankingTurma.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
+		btRankingTurma.setBounds(198, 275, 150, 60);
+		btRankingTurma.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		btRankingTurma.setOpaque(false);
+		contentPane.add(btRankingTurma);
 		
 		JLabel lblNewJgoodiesLabel_2 =  new JLabel("Ranking do Aluno");
 		lblNewJgoodiesLabel_2.setForeground(new Color(255, 255, 255));
@@ -118,6 +131,8 @@ public class MenuJogoAluno extends JFrame {
 		JLabel lblNewLabel = new JLabel(imageResource("SalaDeAula.png", 1024, 728));
 		lblNewLabel.setBounds(0,0,1024,728);
 		contentPane.add(lblNewLabel);
+		
+		setVisible(true);
 		
 	}
 	

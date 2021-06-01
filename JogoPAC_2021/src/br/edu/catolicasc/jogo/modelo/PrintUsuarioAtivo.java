@@ -45,7 +45,7 @@ public class PrintUsuarioAtivo extends JFrame {
 		JLabel lbNomeInfo = new JLabel("carregando...");
 		lbNomeInfo.setBounds(66, 11, 125, 14);
 		getContentPane().add(lbNomeInfo);
-	
+		
 		lbNomeInfo.setText(UsuarioAtivo.getNome());//EXEMPLO DE COMO CHAMAR UM DADO DO USUARIO ATIVO
 		
 		JButton btnNewButton = new JButton("Cadastrar S\u00E9rie");
