@@ -66,8 +66,8 @@ public class Login extends JFrame {
 						
 						userAtivo = new UsuarioAtivo(usuario);
 						
-						//new PrintUsuarioAtivo(usuario,bd.getInstance().getConnection());
-						new MenuJogoAluno();
+						new PrintUsuarioAtivo(usuario,bd.getInstance().getConnection());
+						//new PrintUsuarioAtivo("master",bd.getInstance().getConnection());
 						setVisible(false);
 					}
 				} catch (Exception ex) {

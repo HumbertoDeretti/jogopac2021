@@ -21,7 +21,7 @@ public class MenuJogoProfessor extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,7 +32,7 @@ public class MenuJogoProfessor extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -108,7 +108,7 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewLabel_1.setBounds(0,0,1024,728);
 		contentPane.add(lblNewLabel_1);
 		
-		
+		setVisible(true);
 	}
 	
 	private ImageIcon imageResource(String path,int w,int h) {
