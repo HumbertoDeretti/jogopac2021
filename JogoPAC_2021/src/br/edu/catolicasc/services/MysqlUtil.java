@@ -165,18 +165,29 @@ public class MysqlUtil {
 		}
 	}
 	
-	public void SelectRanking(){
+	public String SelectRanking(){
 		sql = "select * from PONTUACAO";
 		
+		String retorno="";
+
+		
 		try {
+			conn = DriverManager.getConnection("jdbc:mysql://"+serverMysql+":"+portMysql+"/"+dbaseMysql,"master","master");
 			statement = conn.createStatement();
 			resultSet = statement.executeQuery(sql);
+			
+			while(resultSet.next()){
+				String id_aluno = resultSet.getString("ID_ALUNO");
+				String pontos = resultSet.getString("PONTOS");
+				System.out.println(id_aluno + " fez " +pontos +" pontos ");
+				retorno = pontos;
+			}
 		
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		
-		System.out.println(resultSet);
+		return retorno;
 	}
 	
 	
