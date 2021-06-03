@@ -165,5 +165,19 @@ public class MysqlUtil {
 		}
 	}
 	
+	public void SelectRanking(){
+		sql = "select * from PONTUACAO";
+		
+		try {
+			statement = conn.createStatement();
+			resultSet = statement.executeQuery(sql);
+		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		System.out.println(resultSet);
+	}
+	
 	
 }
