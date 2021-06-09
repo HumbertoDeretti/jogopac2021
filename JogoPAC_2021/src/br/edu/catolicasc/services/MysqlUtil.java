@@ -9,8 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.List;
+
+import br.edu.catolicasc.jogo.modelo.Pontuacao;
 
 
 /**
@@ -165,11 +169,11 @@ public class MysqlUtil {
 		}
 	}
 	
-	public String SelectRanking(){
-		sql = "select * from PONTUACAO";
+	public List<Pontuacao>SelectRanking(){
+		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO ";
 		
-		String retorno="";
 
+		List<Pontuacao> pontos = new ArrayList<>();
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://"+serverMysql+":"+portMysql+"/"+dbaseMysql,"master","master");
@@ -177,17 +181,20 @@ public class MysqlUtil {
 			resultSet = statement.executeQuery(sql);
 			
 			while(resultSet.next()){
-				String id_aluno = resultSet.getString("ID_ALUNO");
-				String pontos = resultSet.getString("PONTOS");
-				System.out.println(id_aluno + " fez " +pontos +" pontos ");
-				retorno = pontos;
+				
+				Pontuacao ranking = new Pontuacao();
+				
+				ranking.setNome(resultSet.getString("NOME"));
+				ranking.setValor(resultSet.getInt("PONTOS"));
+				
+				pontos.add(ranking);
 			}
 		
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		
-		return retorno;
+		return pontos;
 	}
 	
 	
