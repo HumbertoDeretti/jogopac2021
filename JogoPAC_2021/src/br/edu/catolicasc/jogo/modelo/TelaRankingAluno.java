@@ -14,7 +14,7 @@ import javax.swing.border.BevelBorder;
 import java.awt.Font;
 
 
-public class TelaRanking extends JFrame{
+public class TelaRankingAluno extends JFrame{
 
 	
 	private static MysqlUtil banco;
@@ -29,7 +29,7 @@ public class TelaRanking extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaRanking frame = new TelaRanking();
+					TelaRankingAluno frame = new TelaRankingAluno();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,10 +40,10 @@ public class TelaRanking extends JFrame{
 
 	
 	
-	public TelaRanking() {
+	public TelaRankingAluno() {
 		banco = new MysqlUtil();
 		
-		banco.SelectRanking();
+		banco.SelectRankingAluno();
 			
 		setSize(1024, 615);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,12 +69,12 @@ public class TelaRanking extends JFrame{
 		table_2.setModel(model);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(TelaRanking.class.getResource("/resources/fundoranking2.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(TelaRankingAluno.class.getResource("/resources/fundoranking2.jpg")));
 		lblNewLabel.setSize(1024, 615);
 		getContentPane().add(lblNewLabel);
 	
 		model.addRow(new Object[]{"Nome","Pontuação"});
-		for(Pontuacao p: ppontos.SelectRanking()) {
+		for(Pontuacao p: ppontos.SelectRankingAluno()) {
 			
 			System.out.println(p.getNome());
 			System.out.println(p.getValor());

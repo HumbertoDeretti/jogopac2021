@@ -197,5 +197,33 @@ public class MysqlUtil {
 		return pontos;
 	}
 	
+	public List<Pontuacao>SelectRankingAluno(){
+		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO AND p.ID_ALUNO = 1";
+		
+
+		List<Pontuacao> pontos = new ArrayList<>();
+		
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://"+serverMysql+":"+portMysql+"/"+dbaseMysql,"master","master");
+			statement = conn.createStatement();
+			resultSet = statement.executeQuery(sql);
+			
+			while(resultSet.next()){
+				
+				Pontuacao ranking = new Pontuacao();
+				
+				ranking.setNome(resultSet.getString("NOME"));
+				ranking.setValor(resultSet.getInt("PONTOS"));
+				
+				pontos.add(ranking);
+			}
+		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return pontos;
+	}
+	
 	
 }
