@@ -170,7 +170,7 @@ public class MysqlUtil {
 	}
 	
 	public List<Pontuacao>SelectRanking(){
-		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO ";
+		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO order by PONTOS desc";
 		
 
 		List<Pontuacao> pontos = new ArrayList<>();
@@ -198,7 +198,8 @@ public class MysqlUtil {
 	}
 	
 	public List<Pontuacao>SelectRankingAluno(){
-		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO AND p.ID_ALUNO = 1";
+		
+		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO AND p.ID_ALUNO = 1 order by PONTOS desc";
 		
 
 		List<Pontuacao> pontos = new ArrayList<>();

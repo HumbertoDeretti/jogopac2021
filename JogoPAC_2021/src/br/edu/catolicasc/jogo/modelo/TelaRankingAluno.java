@@ -58,18 +58,18 @@ public class TelaRankingAluno extends JFrame{
 		getContentPane().add(scrollPane);
 		
 		table_2 = new JTable();
-		table_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 20));
+		table_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		
 		DefaultTableModel model = new DefaultTableModel();
 		  model.addColumn("Nome");
 		    model.addColumn("Pontuação");
 		table_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		table_2.setBounds(183, 94, 682, 302);
+		table_2.setBounds(214, 67, 682, 302);
 		getContentPane().add(table_2);
 		table_2.setModel(model);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(TelaRankingAluno.class.getResource("/resources/fundoranking2.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(TelaRankingAluno.class.getResource("/resources/RankingAluno.jpg")));
 		lblNewLabel.setSize(1024, 615);
 		getContentPane().add(lblNewLabel);
 	

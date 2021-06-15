@@ -58,7 +58,7 @@ public class TelaRanking extends JFrame{
 		getContentPane().add(scrollPane);
 		
 		table_2 = new JTable();
-		table_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 20));
+		table_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		
 		DefaultTableModel model = new DefaultTableModel();
 		  model.addColumn("Nome");
