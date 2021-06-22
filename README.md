@@ -8,7 +8,7 @@
 *Observações: Outras objetos ainda em desenvolvimento.
 
 
-##Etapas
+## Etapas
 Sequeência | Etapa | Porcentagem
 ------------ | ------------- | -------------
 1 | Banco de Dados | 100%
