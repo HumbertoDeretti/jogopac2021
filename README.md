@@ -22,4 +22,8 @@ Sequeência | Etapa | Porcentagem
 1 | Banco de Dados | 100%
 2 | Tela de Login | 100%
 3 | Validação de Login | 100%
-4 | Telas Rrankgin | 75%
+4 | Telas Rankings | 75%
+5 | Design Menus | 100%
+6 | Telas Menus | 25%
+7 | Telas Cadastros | 50%
+8 | Design Cadastros | 0%
