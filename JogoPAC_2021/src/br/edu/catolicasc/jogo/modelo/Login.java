@@ -35,7 +35,7 @@ public class Login extends JFrame {
     
     
 	public Login() {
-		bd = new MysqlUtil();
+		bd = bd.getInstance();
 		cUtils = new ComponentesUtils();
 		
 		setBackground(SystemColor.menu);

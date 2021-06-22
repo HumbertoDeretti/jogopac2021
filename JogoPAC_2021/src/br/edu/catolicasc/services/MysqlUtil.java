@@ -47,13 +47,14 @@ public class MysqlUtil {
 	//private static String portMysql = "3306";//LOCAL
 	private static String dbaseMysql = "game";
 	
-	public MysqlUtil() {
-		encrypt = new Encrypt();
+	private MysqlUtil() {
+		
 	}
 	
 	public MysqlUtil getInstance() {
 		if(mysqlUtil == null) {
-			mysqlUtil = new MysqlUtil();			
+			mysqlUtil = new MysqlUtil();
+			encrypt = new Encrypt();
 		}
 		return mysqlUtil;
 	}

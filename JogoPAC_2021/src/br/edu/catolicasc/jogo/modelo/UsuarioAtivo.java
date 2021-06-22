@@ -33,7 +33,7 @@ public class UsuarioAtivo{
 	
 	public UsuarioAtivo(String usuario) {
 		if(bd == null) {
-			bd = new MysqlUtil();
+			bd = bd.getInstance();
 			encrypt = new Encrypt();
 			gerarDados(usuario);
 		}
