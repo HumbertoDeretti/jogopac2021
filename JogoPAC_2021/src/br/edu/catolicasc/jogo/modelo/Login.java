@@ -50,6 +50,10 @@ public class Login extends JFrame {
 		
 		
 		JButton btLogin = new JButton("");
+		btLogin.setOpaque(false);
+		btLogin.setContentAreaFilled(false);
+		btLogin.setBorderPainted(false);
+		btLogin.setIcon(cUtils.imageResource("lgBrain.png",0,0));
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		//btLogin.setForeground(SystemColor.controlLtHighlight);
 		//btLogin.setBackground(new Color(255, 255, 255));
@@ -80,7 +84,7 @@ public class Login extends JFrame {
 			}
 		});
 		
-		btLogin.setBounds(150, 382, 98, 64);
+		btLogin.setBounds(144, 373, 111, 77);
 		getContentPane().add(btLogin);
 		
 		txtLogin = new JTextField();
