@@ -9,18 +9,10 @@
 
 #Etapas
 
-<<<<<<< HEAD
-Sequência|Etapa|Procentagem
-1|Banco de Dados|100%
-2|Tela de Login|100%
-3|Validação de Login|100%
-4|Telas Rrankgin|75%
-=======
-
 Sequência|Etapa|Procentagem
 1|Banco de Dados|100%
 2|Tela de Login|100%
 3|Validação de Login|100%
 4|Telas Rrankgin|75%
 
->>>>>>> branch 'main' of https://github.com/HumbertoDeretti/jogopac2021
+GitRepository: https://github.com/HumbertoDeretti/jogopac2021
