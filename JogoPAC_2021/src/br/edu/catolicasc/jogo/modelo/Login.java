@@ -19,6 +19,7 @@ import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
 
 public class Login extends JFrame {
 	/**
@@ -48,10 +49,10 @@ public class Login extends JFrame {
 		this.setResizable(false);
 		
 		
-		JButton btLogin = new JButton("Entrar");
+		JButton btLogin = new JButton("");
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btLogin.setForeground(SystemColor.controlLtHighlight);
-		btLogin.setBackground(SystemColor.textHighlight);
+		//btLogin.setForeground(SystemColor.controlLtHighlight);
+		//btLogin.setBackground(new Color(255, 255, 255));
 		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuario = txtLogin.getText();
@@ -79,13 +80,13 @@ public class Login extends JFrame {
 			}
 		});
 		
-		btLogin.setBounds(374, 455, 294, 64);
+		btLogin.setBounds(150, 382, 98, 64);
 		getContentPane().add(btLogin);
 		
 		txtLogin = new JTextField();
 		txtLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtLogin.setHorizontalAlignment(SwingConstants.CENTER);
-		txtLogin.setBounds(374, 245, 294, 40);
+		txtLogin.setBounds(111, 211, 191, 32);
 		getContentPane().add(txtLogin);
 		txtLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		txtLogin.setOpaque(false);
@@ -97,11 +98,11 @@ public class Login extends JFrame {
 		txtSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		txtSenha.setOpaque(false);
 		
-		txtSenha.setBounds(374, 330, 294, 40);
+		txtSenha.setBounds(111, 295, 196, 32);
 		getContentPane().add(txtSenha);
 		txtSenha.setColumns(10);
 		
-		JLabel lbBackgroud = new JLabel(cUtils.imageResource("wpBrain.png",0,0));
+		JLabel lbBackgroud = new JLabel(cUtils.imageResource("menu.png",0,0));
 		lbBackgroud.setBounds(0, 0, 1024, 576);
 		getContentPane().add(lbBackgroud);
 		
