@@ -27,7 +27,7 @@ public class Login extends JFrame {
 	private static final long serialVersionUID = 2438794617558804165L;
 	private JTextField txtLogin;
 	private JTextField txtSenha;
-	private MysqlUtil bd;
+	private MysqlUtil bd = MysqlUtil.getInstance();
     private JTable table;
     private ComponentesUtils cUtils;
 	@SuppressWarnings("unused")
@@ -35,7 +35,7 @@ public class Login extends JFrame {
     
     
 	public Login() {
-		bd = bd.getInstance();
+		
 		cUtils = new ComponentesUtils();
 		
 		setBackground(SystemColor.menu);
@@ -56,7 +56,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String usuario = txtLogin.getText();
 				try {
-					if(!bd.validaUser(usuario, txtSenha.getText(),bd.getInstance().getConnection())) {
+					if(!bd.validaUser(usuario, txtSenha.getText(),bd.getConnection())) {
 						System.out.println("Usuario ou senha inválido.");
 						JOptionPane.showMessageDialog(null, "Digita certo que funciona...");
 						userAtivo = null;
@@ -66,7 +66,7 @@ public class Login extends JFrame {
 						
 						userAtivo = new UsuarioAtivo(usuario);
 						
-						new PrintUsuarioAtivo(usuario,bd.getInstance().getConnection());
+						new PrintUsuarioAtivo(usuario,bd.getConnection());
 						//new PrintUsuarioAtivo("master",bd.getInstance().getConnection());
 						setVisible(false);
 					}

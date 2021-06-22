@@ -30,7 +30,7 @@ import br.edu.catolicasc.jogo.modelo.Pontuacao;
 *Port number: 6603
  */
 public class MysqlUtil {
-	private Encrypt encrypt;
+	private static Encrypt encrypt;
 	private Connection conn = null;
 	private Statement statement = null;
 	@SuppressWarnings("unused")
@@ -51,7 +51,7 @@ public class MysqlUtil {
 		
 	}
 	
-	public MysqlUtil getInstance() {
+	public static MysqlUtil getInstance() {
 		if(mysqlUtil == null) {
 			mysqlUtil = new MysqlUtil();
 			encrypt = new Encrypt();

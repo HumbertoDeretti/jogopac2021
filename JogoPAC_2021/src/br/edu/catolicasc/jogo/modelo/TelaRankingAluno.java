@@ -17,7 +17,7 @@ import java.awt.Font;
 public class TelaRankingAluno extends JFrame{
 
 	
-	private static MysqlUtil banco;
+	private static MysqlUtil banco = MysqlUtil.getInstance();
 	private static final long serialVersionUID = 7304639996686864599L;
 	@SuppressWarnings("unused")
 	private JPanel contentPane;
@@ -41,7 +41,6 @@ public class TelaRankingAluno extends JFrame{
 	
 	
 	public TelaRankingAluno() {
-		banco = new MysqlUtil();
 		
 		banco.SelectRankingAluno();
 			
@@ -51,7 +50,7 @@ public class TelaRankingAluno extends JFrame{
 		this.setResizable(false);
 		
 		getContentPane().setLayout(null);
-		MysqlUtil ppontos = new MysqlUtil();
+
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 2, 2);
@@ -74,7 +73,7 @@ public class TelaRankingAluno extends JFrame{
 		getContentPane().add(lblNewLabel);
 	
 		model.addRow(new Object[]{"Nome","Pontuação"});
-		for(Pontuacao p: ppontos.SelectRankingAluno()) {
+		for(Pontuacao p: banco.SelectRankingAluno()) {
 			
 			System.out.println(p.getNome());
 			System.out.println(p.getValor());

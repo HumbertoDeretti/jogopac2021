@@ -6,16 +6,9 @@ import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import java.awt.Choice;
 
 public class PrintUsuarioAtivo extends JFrame {
 	

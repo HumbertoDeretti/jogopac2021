@@ -1,30 +1,25 @@
 package br.edu.catolicasc.jogo.modelo;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import javax.swing.JRadioButton;
 import java.awt.Color;
-import java.awt.Rectangle;
-import java.awt.Point;
 import javax.swing.JPasswordField;
 import javax.swing.DropMode;
 import java.awt.Font;
 
 public class TelaCadastro extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JPasswordField passwordField;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextField txtLogin;
+	private JPasswordField txtPassword;
 
 	/**
 	 * Launch the application.
@@ -54,25 +49,25 @@ public class TelaCadastro extends JFrame {
 		
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(TelaCadastro.class.getResource("/resources/menu.png")));
-		lblNewLabel.setBounds(0, 0, 1024, 615);
-		getContentPane().add(lblNewLabel);
+		JLabel imgBackground = new JLabel("New label");
+		imgBackground.setIcon(new ImageIcon(TelaCadastro.class.getResource("/resources/menu.png")));
+		imgBackground.setBounds(0, 0, 1024, 615);
+		getContentPane().add(imgBackground);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Harrington", Font.PLAIN, 36));
-		textField_1.setToolTipText("");
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setDropMode(DropMode.INSERT);
-		textField_1.setBackground(Color.WHITE);
-		textField_1.setForeground(Color.BLACK);
-		textField_1.setBounds(114, 233, 191, 32);
-		getContentPane().add(textField_1);
+		txtLogin = new JTextField();
+		txtLogin.setFont(new Font("Harrington", Font.PLAIN, 36));
+		txtLogin.setToolTipText("");
+		txtLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		txtLogin.setDropMode(DropMode.INSERT);
+		txtLogin.setBackground(Color.WHITE);
+		txtLogin.setForeground(Color.BLACK);
+		txtLogin.setBounds(114, 233, 191, 32);
+		getContentPane().add(txtLogin);
 	
-		passwordField = new JPasswordField();
-		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
-		passwordField.setBounds(114, 315, 191, 32);
-		getContentPane().add(passwordField);
+		txtPassword = new JPasswordField();
+		txtPassword.setHorizontalAlignment(SwingConstants.CENTER);
+		txtPassword.setBounds(114, 315, 191, 32);
+		getContentPane().add(txtPassword);
 		
 		
 		

@@ -20,10 +20,10 @@ public class TesteCadastroSerie extends JFrame {
 	 */
 	private static final long serialVersionUID = -3349417742695400872L;
 	private JTextField txtSerieName;
-    private MysqlUtil bd;
+    private MysqlUtil bd = MysqlUtil.getInstance();
     
 	public TesteCadastroSerie() {
-		bd = new MysqlUtil();
+
 
 		setSize(new Dimension(438, 152));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +47,7 @@ public class TesteCadastroSerie extends JFrame {
 		JButton btCadastrar = new JButton("Cadastrar");
 		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				bd.newSerie(txtSerieName.getText(),bd.getInstance().getConnection());
+				bd.newSerie(txtSerieName.getText(),bd.getConnection());
 			}
 		});
 		btCadastrar.setForeground(new Color(255, 255, 255));
