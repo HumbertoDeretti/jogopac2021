@@ -12,4 +12,4 @@
 1 - Banco de Dados		- 100%
 2 - Tela de Login		- 100%
 2 - Validação de Login	- 100%
-3 - 
+3 - Telas de Ranking    - 75%
