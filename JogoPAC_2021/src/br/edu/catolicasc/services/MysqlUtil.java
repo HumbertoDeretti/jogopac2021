@@ -170,14 +170,14 @@ public class MysqlUtil {
 		}
 	}
 	
-	public List<Pontuacao>SelectRanking(){
+	public List<Pontuacao>SelectRanking(Connection conn){
 		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO order by PONTOS desc";
 		
 
 		List<Pontuacao> pontos = new ArrayList<>();
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://"+serverMysql+":"+portMysql+"/"+dbaseMysql,"master","master");
+			
 			statement = conn.createStatement();
 			resultSet = statement.executeQuery(sql);
 			
@@ -198,7 +198,7 @@ public class MysqlUtil {
 		return pontos;
 	}
 	
-	public List<Pontuacao>SelectRankingAluno(){
+	public List<Pontuacao>SelectRankingAluno(Connection conn){
 		
 		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO AND p.ID_ALUNO = 1 order by PONTOS desc";
 		
@@ -206,7 +206,7 @@ public class MysqlUtil {
 		List<Pontuacao> pontos = new ArrayList<>();
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:mysql://"+serverMysql+":"+portMysql+"/"+dbaseMysql,"master","master");
+			
 			statement = conn.createStatement();
 			resultSet = statement.executeQuery(sql);
 			

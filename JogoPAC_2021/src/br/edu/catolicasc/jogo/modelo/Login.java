@@ -19,7 +19,6 @@ import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.awt.Color;
 
 public class Login extends JFrame {
 	/**
@@ -30,14 +29,14 @@ public class Login extends JFrame {
 	private JTextField txtSenha;
 	private MysqlUtil bd = MysqlUtil.getInstance();
     private JTable table;
-    private ComponentesUtils cUtils;
+    private ComponentesUtils cUtils = new ComponentesUtils();
 	@SuppressWarnings("unused")
 	private UsuarioAtivo userAtivo;
     
     
 	public Login() {
 		
-		cUtils = new ComponentesUtils();
+		
 		
 		setBackground(SystemColor.menu);
 		
