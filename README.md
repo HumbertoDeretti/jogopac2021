@@ -9,6 +9,13 @@
 
 #Etapas
 
+
 1 - Banco de Dados		- 100%
 2 - Tela de Login		- 100%
 2 - Validação de Login	- 100%
+=======
+1 - Banco de Dados		- 100%\n
+2 - Tela de Login		- 100%\n
+2 - Validação de Login	- 100%\n
+3 - 
+
