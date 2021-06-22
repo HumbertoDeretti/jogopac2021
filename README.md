@@ -1,4 +1,3 @@
-# jogopac2021
+# Cerebelo - Jogo Lógico
 
-Para obter os dados do usuário logado usar UsuarioAtivo.getXXXXXX de dentro do pacote modelo.
-Não instanciar a classe.
+
