@@ -73,6 +73,7 @@ public class Login extends JFrame {
 						
 						userAtivo = new UsuarioAtivo(usuario);
 						new TelaRanking();
+						
 						//new PrintUsuarioAtivo(usuario,bd.getConnection());
 						//new PrintUsuarioAtivo("master",bd.getInstance().getConnection());
 						setVisible(false);
