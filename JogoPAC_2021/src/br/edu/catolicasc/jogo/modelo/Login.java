@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import br.edu.catolicasc.jogo.fase.Fase;
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 
@@ -32,7 +33,9 @@ public class Login extends JFrame {
     private ComponentesUtils cUtils = new ComponentesUtils();
 	@SuppressWarnings("unused")
 	private UsuarioAtivo userAtivo;
-    
+	
+	
+    private boolean FAST_LOGIN = true;
     
 	public Login() {
 		
@@ -69,14 +72,9 @@ public class Login extends JFrame {
 						userAtivo = null;
 					}else {
 						System.out.println("Conectado");
-						//JOptionPane.showMessageDialog(null, "Acessou com sucesso o jogo.");
-						
 						userAtivo = new UsuarioAtivo(usuario);
-						new TelaRanking();
-						
-						//new PrintUsuarioAtivo(usuario,bd.getConnection());
-						//new PrintUsuarioAtivo("master",bd.getInstance().getConnection());
 						setVisible(false);
+						new Fase(1);
 					}
 				} catch (Exception ex) {
 					System.out.println(ex);
@@ -91,6 +89,9 @@ public class Login extends JFrame {
 		getContentPane().add(btLogin);
 		
 		txtLogin = new JTextField();
+		if(FAST_LOGIN) {
+			txtLogin.setText("jonatha");
+		}
 		txtLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		txtLogin.setBounds(111, 211, 191, 32);
@@ -100,6 +101,9 @@ public class Login extends JFrame {
 		txtLogin.setColumns(10);
 		
 		txtSenha = new JPasswordField();
+		if(FAST_LOGIN) {
+			txtSenha.setText("master");
+		}
 		txtSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtSenha.setHorizontalAlignment(SwingConstants.CENTER);
 		txtSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder());

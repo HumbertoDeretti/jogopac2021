@@ -151,6 +151,47 @@ public class MysqlUtil {
 		
 		
 	}
+	
+	public LinkedList<Hashtable<String,String>> fasesJogo(Connection conn,String idFasePlay) {
+	
+		if(idFasePlay.equals(null)) {
+			sql = "select * from FASE";
+		}else {
+			sql = "select * from FASE where ID_FASE = "+idFasePlay;
+		}
+
+		resultSet = null;
+		LinkedList<Hashtable<String,String>> list = new LinkedList<>();
+		
+		try {
+			statement = conn.createStatement();
+			resultSet = statement.executeQuery(sql);
+			while (resultSet.next()) {
+				Hashtable<String, String> currentRowMap = new Hashtable<>();
+				ResultSetMetaData rsmd = resultSet.getMetaData();
+				int columnCount = rsmd.getColumnCount();
+				for (int i = 1; i <= columnCount; i++) {
+			        // retrieves column name and value.
+			        String key = rsmd.getColumnLabel(i);
+			        String value = resultSet.getString(rsmd.getColumnName(i));
+			        if (value == null) {
+			            value = "null";
+			        }
+			        currentRowMap .put(key, value);
+			
+			    }
+				list.add(currentRowMap);
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		
+		return list;
+		
+		
+	}
+	
+	
 	public void newSerie(String nome,Connection conn) {
 		System.out.println(conn);
 		Cadastros.novaSerie(nome, conn);

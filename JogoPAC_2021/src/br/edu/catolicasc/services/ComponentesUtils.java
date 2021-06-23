@@ -28,6 +28,18 @@ public class ComponentesUtils {
 	
 		return img;
 	}
-	
+	public ImageIcon fasesResource(String path, int w, int h) {
+
+		ImageIcon img;
+		if (w == 0) {
+			img = new ImageIcon(getClass().getResource("/resources_fases/" + path));
+		} else {
+			img = new ImageIcon(new ImageIcon(getClass().getResource("/resources_fases/" + path)).getImage()
+					.getScaledInstance(w, h, Image.SCALE_SMOOTH));
+		}
+
+		return img;
+
+	}
 	
 }

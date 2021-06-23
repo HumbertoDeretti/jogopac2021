@@ -8,13 +8,13 @@ import br.edu.catolicasc.services.MysqlUtil;
 
 public class UsuarioAtivo {
 
-	private LinkedList<Hashtable<String, String>> list;
+	private static LinkedList<Hashtable<String, String>> list;
 
 	private static Encrypt encrypt = new Encrypt();;
-	private MysqlUtil bd = MysqlUtil.getInstance();
+	private static MysqlUtil bd = MysqlUtil.getInstance();
 
 	private static int idPessoa;
-	private static int lastStage;
+	
 	private static String idade;
 	private static String nome;
 	private static String dtCriacao;
@@ -26,15 +26,19 @@ public class UsuarioAtivo {
 	private static String aluPerm;
 	private static String nomeProf;
 	private static String nomeTurma;
+	private static String lastStage;
 	
+	private static String usuario;
 
 	public UsuarioAtivo(String usuario) {
-
+		UsuarioAtivo.usuario = usuario;
 		gerarDados(usuario);
 
 	}
-
-	private void gerarDados(String usuario) {
+	public static void Update() {
+		gerarDados(UsuarioAtivo.usuario);
+	}
+	private static void gerarDados(String usuario) {
 		int index = 0;
 		list = bd.userDados(usuario, bd.getConnection());
 
@@ -50,7 +54,7 @@ public class UsuarioAtivo {
 		UsuarioAtivo.aluPerm = list.get(index).get("ALU_PERM");
 		UsuarioAtivo.nomeProf = list.get(index).get("NOME_PROFESSOR");
 		UsuarioAtivo.nomeTurma = list.get(index).get("NOME_TURMA");
-		UsuarioAtivo.lastStage = Integer.parseInt(list.get(index).get("LAST_STAGE"));
+		UsuarioAtivo.lastStage =list.get(index).get("LAST_STAGE");
 	}
 
 	public static int getIdPessoa() {
@@ -106,7 +110,7 @@ public class UsuarioAtivo {
 		return nomeTurma;
 	}
 
-	public static int getLastStage() {
+	public static String getLastStage() {
 		return lastStage;
 	}
 
