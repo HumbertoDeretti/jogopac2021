@@ -14,6 +14,7 @@ public class UsuarioAtivo {
 	private MysqlUtil bd = MysqlUtil.getInstance();
 
 	private static int idPessoa;
+	private static int lastStage;
 	private static String idade;
 	private static String nome;
 	private static String dtCriacao;
@@ -25,6 +26,7 @@ public class UsuarioAtivo {
 	private static String aluPerm;
 	private static String nomeProf;
 	private static String nomeTurma;
+	
 
 	public UsuarioAtivo(String usuario) {
 
@@ -48,6 +50,7 @@ public class UsuarioAtivo {
 		UsuarioAtivo.aluPerm = list.get(index).get("ALU_PERM");
 		UsuarioAtivo.nomeProf = list.get(index).get("NOME_PROFESSOR");
 		UsuarioAtivo.nomeTurma = list.get(index).get("NOME_TURMA");
+		UsuarioAtivo.lastStage = Integer.parseInt(list.get(index).get("LAST_STAGE"));
 	}
 
 	public static int getIdPessoa() {
