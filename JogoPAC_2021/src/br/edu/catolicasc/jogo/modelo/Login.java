@@ -38,6 +38,7 @@ public class Login extends JFrame {
 		
 		
 		
+		
 		setBackground(SystemColor.menu);
 		
 		getContentPane().setLayout(null);
@@ -49,9 +50,11 @@ public class Login extends JFrame {
 		
 		
 		JButton btLogin = new JButton("");
-		btLogin.setOpaque(false);
-		btLogin.setContentAreaFilled(false);
-		btLogin.setBorderPainted(false);
+		
+		btLogin.setOpaque(false);//BOTAO SEM FUNDO
+		btLogin.setContentAreaFilled(false);//BOTAO SEM FUNDO
+		btLogin.setBorderPainted(false);//BOTAO SEM FUNDO
+		
 		btLogin.setIcon(cUtils.imageResource("lgBrain.png",0,0));
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		//btLogin.setForeground(SystemColor.controlLtHighlight);
@@ -69,8 +72,9 @@ public class Login extends JFrame {
 						//JOptionPane.showMessageDialog(null, "Acessou com sucesso o jogo.");
 						
 						userAtivo = new UsuarioAtivo(usuario);
+						new TelaRanking();
 						
-						new PrintUsuarioAtivo(usuario,bd.getConnection());
+						//new PrintUsuarioAtivo(usuario,bd.getConnection());
 						//new PrintUsuarioAtivo("master",bd.getInstance().getConnection());
 						setVisible(false);
 					}
@@ -106,6 +110,7 @@ public class Login extends JFrame {
 		txtSenha.setColumns(10);
 		
 		JLabel lbBackgroud = new JLabel(cUtils.imageResource("menu.png",0,0));
+		
 		lbBackgroud.setBounds(0, 0, 1024, 576);
 		getContentPane().add(lbBackgroud);
 		

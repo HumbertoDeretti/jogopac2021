@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import br.edu.catolicasc.jogo.modelo.Pontuacao;
+import br.edu.catolicasc.jogo.modelo.UsuarioAtivo;
 
 
 /**
@@ -171,8 +172,8 @@ public class MysqlUtil {
 	}
 	
 	public List<Pontuacao>SelectRanking(Connection conn){
-		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA = a2.ID_PESSOA AND a2.ID_PESSOA = p.ID_ALUNO order by PONTOS desc";
-		
+		int  idPessoa = UsuarioAtivo.getIdPessoa();
+		sql = "select r.NOME,r.PONTUACAO AS PONTOS from RANKING r where r.ID_TURMA = " + idPessoa + " order by r.PONTUACAO desc LIMIT 10";
 
 		List<Pontuacao> pontos = new ArrayList<>();
 		
