@@ -106,4 +106,8 @@ public class UsuarioAtivo {
 		return nomeTurma;
 	}
 
+	public static int getLastStage() {
+		return lastStage;
+	}
+
 }

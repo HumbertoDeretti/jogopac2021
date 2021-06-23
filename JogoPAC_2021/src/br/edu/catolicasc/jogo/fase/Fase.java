@@ -1,11 +1,14 @@
-package br.edu.catolicasc.fase;
+package br.edu.catolicasc.jogo.fase;
 
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 
 public class Fase {
+	
+	@SuppressWarnings("unused")
 	private MysqlUtil bd = MysqlUtil.getInstance();
-    private ComponentesUtils cUtils = new ComponentesUtils();
+    @SuppressWarnings("unused")
+	private ComponentesUtils cUtils = new ComponentesUtils();
     
     
     public Fase() {

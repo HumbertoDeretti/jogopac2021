@@ -1,14 +1,10 @@
 package br.edu.catolicasc.jogo.modelo;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
 import br.edu.catolicasc.parametros.Globais;
 import br.edu.catolicasc.services.AvatarFocus;
 import br.edu.catolicasc.services.ComponentesUtils;
@@ -21,15 +17,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.Box;
 import javax.swing.ButtonGroup;
-import javax.swing.JSplitPane;
 import javax.swing.JRadioButton;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 
 public class CadastroPessoas extends JFrame {
 
+	
+	private static final long serialVersionUID = 983030616361762662L;
 	private JTextField txtNomePessoa;
 	private JTextField txtDataNascimento;
 	private MysqlUtil bd = MysqlUtil.getInstance();
