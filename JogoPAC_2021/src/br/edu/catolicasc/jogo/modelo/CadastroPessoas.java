@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.edu.catolicasc.parametros.Globais;
 import br.edu.catolicasc.services.AvatarFocus;
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
@@ -62,12 +63,12 @@ public class CadastroPessoas extends JFrame {
 		
 		JLabel NomePessoa = new JLabel("Nome: ");
 		NomePessoa.setHorizontalAlignment(SwingConstants.RIGHT);
-		NomePessoa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		NomePessoa.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE));
 		NomePessoa.setBounds(-1, 167, 113, 13);
 		getContentPane().add(NomePessoa);
 		
 		txtNomePessoa = new JTextField();
-		txtNomePessoa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtNomePessoa.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE));
 		NomePessoa.setLabelFor(txtNomePessoa);
 		txtNomePessoa.setBounds(113, 159, 243, 30);
 		getContentPane().add(txtNomePessoa);
@@ -75,12 +76,12 @@ public class CadastroPessoas extends JFrame {
 		
 		JLabel DataNascimento = new JLabel("Data de Nasc.: ");
 		DataNascimento.setHorizontalAlignment(SwingConstants.RIGHT);
-		DataNascimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		DataNascimento.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE));
 		DataNascimento.setBounds(-2, 163, 113, 100);
 		getContentPane().add(DataNascimento);
 		
 		txtDataNascimento = new JTextField();
-		txtDataNascimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtDataNascimento.setFont(new Font(Globais.FONT_NAME, Font.PLAIN,  Globais.FONT_SIZE));
 		NomePessoa.setLabelFor(txtDataNascimento);
 		txtDataNascimento.setBounds(113, 200, 243, 30);
 		getContentPane().add(txtDataNascimento);
@@ -104,11 +105,13 @@ public class CadastroPessoas extends JFrame {
 		
 		JRadioButton Avatar3 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
 		Avatar3.addFocusListener(new AvatarFocus(Avatar3));
+		Avatar3.setActionCommand("3");
 		Avatar3.setBounds(207, 25, 55, 55);
 		getContentPane().add(Avatar3);
 		
 		JRadioButton Avatar4 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
 		Avatar4.addFocusListener(new AvatarFocus(Avatar4));
+		Avatar4.setActionCommand("4");
 		Avatar4.setBounds(267, 25, 55, 55);
 		getContentPane().add(Avatar4);
 		
@@ -155,37 +158,13 @@ public class CadastroPessoas extends JFrame {
 		
 		JButton btCadastrar = new JButton("Cadastrar");
 		btCadastrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				/*bd.newSerie(txtNomePessoa.getText(),bd.getConnection());
-				if(Avatar1.isSelected()) {
-					System.out.println("Avatar 1");
-				}else if(Avatar2.isSelected()) {
-					System.out.println("Avatar 2");
-				}else if(Avatar3.isSelected()) {
-					System.out.println("Avatar 3");
-				}else if(Avatar4.isSelected()) {
-					System.out.println("Avatar 4");
-				}else if(Avatar5.isSelected()) {
-					System.out.println("Avatar 5");
-				}else if(Avatar6.isSelected()) {
-					System.out.println("Avatar 6");
-				}else if(Avatar7.isSelected()) {
-					System.out.println("Avatar 7");
-				}else if(Avatar8.isSelected()) {
-					System.out.println("Avatar 8");
-				}else if(Avatar9.isSelected()) {
-					System.out.println("Avatar 9");
-				}else if(Avatar10.isSelected()) {
-					System.out.println("Avatar 10");
-				}else {
-					System.out.println("Nenhum selecionado!!");
-				}*/
+			public void actionPerformed(ActionEvent e) {				
 				System.out.println("Select: "+groupAvatar.getSelection().getActionCommand());
 			}
 		});
 		btCadastrar.setForeground(new Color(255, 255, 255));
 		btCadastrar.setBackground(new Color(154, 205, 50));
-		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btCadastrar.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE_TITLE));
 		btCadastrar.setBounds(111, 245, 243, 35); 
 		getContentPane().add(btCadastrar);
 		

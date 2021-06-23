@@ -4,6 +4,8 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import br.edu.catolicasc.parametros.Globais;
+
 public class ComponentesUtils {
 
 	public ImageIcon imageResource(String path, int w, int h) {
@@ -19,4 +21,13 @@ public class ComponentesUtils {
 		return img;
 
 	}
+	
+	public ImageIcon avatarResource(String path) {
+		ImageIcon img;
+		img = new ImageIcon(new ImageIcon(getClass().getResource("/resources_avatar/" + path)).getImage().getScaledInstance(Globais.LARGURA_AVATAR, Globais.ALTURA_AVATAR, Image.SCALE_SMOOTH));
+	
+		return img;
+	}
+	
+	
 }
