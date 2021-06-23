@@ -170,7 +170,7 @@ public class CadastroPessoas extends JFrame {
 		btCadastrar.setForeground(new Color(255, 255, 255));
 		btCadastrar.setBackground(new Color(154, 205, 50));
 		btCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btCadastrar.setBounds(111, 245, 243, 35);
+		btCadastrar.setBounds(111, 245, 243, 35); 
 		getContentPane().add(btCadastrar);
 	}
 }
