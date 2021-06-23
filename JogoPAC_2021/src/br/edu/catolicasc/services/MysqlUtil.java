@@ -173,11 +173,7 @@ public class MysqlUtil {
 	
 	public List<Pontuacao>SelectRanking(Connection conn){
 		int  idPessoa = UsuarioAtivo.getIdPessoa();
-		sql = "select NOME, SUM(PONTOS) PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p "
-				+ "where a.ID_PESSOA = a2.ID_PESSOA "
-				+ "AND a2.ID_PESSOA = p.ID_ALUNO "
-				+ "AND a2.ID_TURMA = (SELECT a3.ID_TURMA FROM ALUNOS a3 WHERE a3.ID_PESSOA = "+idPessoa+") group by NOME order by PONTOS desc LIMIT 10";
-		
+		sql = "select r.NOME,r.PONTUACAO AS PONTOS from RANKING r where r.ID_TURMA = " + idPessoa + " order by r.PONTUACAO desc LIMIT 10";
 
 		List<Pontuacao> pontos = new ArrayList<>();
 		
