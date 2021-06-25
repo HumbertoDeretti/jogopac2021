@@ -34,6 +34,8 @@ public class Login extends JFrame {
 	@SuppressWarnings("unused")
 	private UsuarioAtivo userAtivo;
 	
+
+	
 	
     private boolean FAST_LOGIN = true;
     
@@ -74,7 +76,7 @@ public class Login extends JFrame {
 						System.out.println("Conectado");
 						userAtivo = new UsuarioAtivo(usuario);
 						setVisible(false);
-						new Fase(2);
+						new Fase(1);
 					}
 				} catch (Exception ex) {
 					System.out.println(ex);
