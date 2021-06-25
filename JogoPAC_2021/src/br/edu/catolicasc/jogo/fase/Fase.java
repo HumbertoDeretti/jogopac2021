@@ -16,6 +16,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class Fase extends JFrame {
 	/**
@@ -33,41 +34,33 @@ public class Fase extends JFrame {
 	private JPanel panelMid;
 	private JLabel lbPergunta;
 	private JLabel lbPontuacao;
-	
-	
+	private JLabel lbImage;
+
 	private static LinkedList<Hashtable<String, String>> listFases;
 	private int idFasePlay;
-    
 
 	private ArrayList<FasesList> fasesLista;
 
 	// Construtor
 	public Fase(int idFasePlay) {
 		newStage(idFasePlay);
-		
-	}
-	
 
-	
-	
+	}
+
 	private void newStage(int idFasePlay) {
 
-			this.idFasePlay = idFasePlay;
-			
-			try {
-				carregarDados();
-				tela();
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-			setVisible(true);
-			
-			
-		
+		this.idFasePlay = idFasePlay;
+
+		try {
+			carregarDados();
+			tela();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		setVisible(true);
+
 	}
-	
-	
-	
+
 	private void tela() {
 		painelRight = new JPanel();
 		panelTop = new JPanel();
@@ -75,13 +68,13 @@ public class Fase extends JFrame {
 		panelLeft = new JPanel();
 		panelMid = new JPanel();
 		lbPergunta = new JLabel("");
-		lbPergunta.setFont(new Font(Globais.FONT_NAME,Font.PLAIN,Globais.FONT_SIZE_TITLE));
-		setTitle("Cerebelo - Jogo Lógico: Fase "+idFasePlay);
+		lbPergunta.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE_TITLE));
+		setTitle("Cerebelo - Jogo Lógico: Fase " + idFasePlay);
 		setResizable(false);
 		setSize(1024, 615);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		
+
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().add(painelRight, BorderLayout.EAST);
 		painelRight.setLayout(new GridLayout(10, 1, 0, 0));
@@ -90,8 +83,13 @@ public class Fase extends JFrame {
 		getContentPane().add(panelTop, BorderLayout.NORTH);
 		getContentPane().add(panelLeft, BorderLayout.WEST);
 		getContentPane().add(panelMid, BorderLayout.CENTER);
+
+		lbImage = new JLabel(cUtils.fasesResource(fasesLista.get(0).getiImgPath(), 800, 450));
+		lbImage.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		
+	
+		panelMid.add(lbImage);
+
 		JButton btSair = new JButton("Sair");
 
 		panelTop.add(lbPergunta);
@@ -102,111 +100,106 @@ public class Fase extends JFrame {
 
 		gerarRespostas();
 		lbPergunta.setText(fasesLista.get(0).getiPergunta());
-		
-				
-		
+
 	}
+
 	private void carregarDados() {
 		UsuarioAtivo.Update();
 		faseDados();
 	}
+
 	public void validar(int i) {
-		if(i==0) {
+		if (i == 0) {
 			System.exit(0);
-		}else {
+		} else {
 			Globais.setPONTUACAO_INICIAL(1);
 			lbPontuacao.setText(Globais.getPONTUACAO_INICIAL());
 		}
 	}
+
 	@SuppressWarnings("static-access")
 	private void gerarRespostas() {
-		ArrayList<ButtonRespostas> JBList =  new ArrayList<ButtonRespostas>();
+		ArrayList<ButtonRespostas> JBList = new ArrayList<ButtonRespostas>();
 		ArrayList<Integer> numeros = new ArrayList<Integer>();
-		int countBtn=0;
+		int countBtn = 0;
 		int dificuldade = fasesLista.get(0).getiDificuldade();
 		int resposta = fasesLista.get(0).getiResposta();
-		
-		for(int i=0;i<300;i++) {
-			int num = cUtils.getRandomNumber((resposta-9), (resposta-1));
-			if(num>=0) {
+
+		for (int i = 0; i < 300; i++) {
+			int num = cUtils.getRandomNumber((resposta - 9), (resposta - 1));
+			if (num >= 0) {
 				numeros.add(num);
 			}
-			numeros.add(cUtils.getRandomNumber((resposta+1), (resposta+30)));
+			numeros.add(cUtils.getRandomNumber((resposta + 1), (resposta + 30)));
 		}
 		numeros = cUtils.removeDuplicates(numeros);
 		Collections.shuffle(numeros);
-		
-		
-		//ADD RESPOSTA CORRETA
-		JBList.add(new ButtonRespostas(Integer.toString(resposta),Integer.toString(resposta),Integer.toString(resposta),this));
-		
-		
-		
-		
-		
+
+		// ADD RESPOSTA CORRETA
+		JBList.add(new ButtonRespostas(Integer.toString(resposta), Integer.toString(resposta),
+				Integer.toString(resposta), this));
+
 		countBtn++;
-		if(dificuldade==1) {
-			for(int i=0;i<(dificuldade*2);i++) {
+		if (dificuldade == 1) {
+			for (int i = 0; i < (dificuldade * 2); i++) {
 				String num = Integer.toString(numeros.get(i));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 			}
-		}else if (dificuldade == 2) {
-			for(int i=0;i<(dificuldade*1.5);i++) {
+		} else if (dificuldade == 2) {
+			for (int i = 0; i < (dificuldade * 1.5); i++) {
 				String num = Integer.toString(numeros.get(i));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 				countBtn++;
 			}
-			if(!(countBtn%2==0)) {
+			if (!(countBtn % 2 == 0)) {
 				String num = Integer.toString(numeros.get(3));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 			}
-		}else if (dificuldade == 3) {
-			for(int i=0;i<(dificuldade*2.5);i++) {
+		} else if (dificuldade == 3) {
+			for (int i = 0; i < (dificuldade * 2.5); i++) {
 				String num = Integer.toString(numeros.get(i));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 				countBtn++;
 			}
-			if(!(countBtn%2==0)) {
+			if (!(countBtn % 2 == 0)) {
 				String num = Integer.toString(numeros.get(3));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 			}
-		}
-		else if (dificuldade == 4) {
-			for(int i=0;i<(dificuldade*3.5);i++) {
+		} else if (dificuldade == 4) {
+			for (int i = 0; i < (dificuldade * 3.5); i++) {
 				String num = Integer.toString(numeros.get(i));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 				countBtn++;
 			}
-			if(!(countBtn%2==0)) {
+			if (!(countBtn % 2 == 0)) {
 				String num = Integer.toString(numeros.get(3));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 			}
-		}
-		else {
-			for(int i=0;i<(dificuldade*5);i++) {
+		} else {
+			for (int i = 0; i < (dificuldade * 5); i++) {
 				String num = Integer.toString(numeros.get(i));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 				countBtn++;
 			}
-			if(!(countBtn%9==0)) {
+			if (!(countBtn % 9 == 0)) {
 				String num = Integer.toString(numeros.get(3));
-				JBList.add(new ButtonRespostas(num, num,Integer.toString(resposta),this));
+				JBList.add(new ButtonRespostas(num, num, Integer.toString(resposta), this));
 			}
 		}
 
 		Collections.shuffle(JBList);
 		Collections.shuffle(JBList);
-		for(JButton btn: JBList) {
+		for (JButton btn : JBList) {
 			painelRight.add(btn);
 		}
-	
+
 	}
 
 	private void faseDados() {
 		if (fasesLista == null) {
 			fasesLista = new ArrayList<FasesList>();
 		}
-		listFases = bd.fasesJogo(bd.getConnection(),Integer.toString(idFasePlay));
+		listFases = bd.fasesJogo(bd.getConnection(), Integer.toString(idFasePlay));
 		int index = 0;
 		while (index < listFases.size()) {
 			fasesLista.add(new FasesList(Integer.parseInt(listFases.get(index).get("ID_FASE")),
