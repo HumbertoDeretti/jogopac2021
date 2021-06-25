@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +27,6 @@ public class Fase extends JFrame {
 	private static final long serialVersionUID = 4084817774670326435L;
 	// Objetos Externos
 	private MysqlUtil bd = MysqlUtil.getInstance();
-	@SuppressWarnings("unused")
 	private ComponentesUtils cUtils = new ComponentesUtils();
 	// Declarações
 	private JPanel painelRight;
@@ -94,19 +94,53 @@ public class Fase extends JFrame {
 		faseDados();
 	}
 	
+	@SuppressWarnings("static-access")
 	private void gerarRespostas() {
 		ArrayList<ButtonRespostas> JBList =  new ArrayList<ButtonRespostas>();
-		JBList.add(new ButtonRespostas("Resposta é 1", "1"));
-		JBList.add(new ButtonRespostas("Resposta é 2", "2"));
+		ArrayList<Integer> numeros = new ArrayList<Integer>();
+		
+		int dificuldade = fasesLista.get(0).getiDificuldade();
+		int resposta = fasesLista.get(0).getiResposta();
+		
+		for(int i=0;i<30;i++) {	
+			numeros.add(cUtils.getRandomNumber((resposta-3), (resposta-1)));
+			numeros.add(cUtils.getRandomNumber((resposta+1), (resposta+9)));
+		}
+		numeros = cUtils.removeDuplicates(numeros);
+		Collections.shuffle(numeros);
+		
+		
+		//ADD RESPOSTA CORRETA
+		JBList.add(new ButtonRespostas(Integer.toString(resposta),Integer.toString(resposta)));
+		if(dificuldade==1) {
+			for(int i=0;i<(dificuldade*2);i++) {
+				String num = Integer.toString(numeros.get(i));
+				JBList.add(new ButtonRespostas(num, num));
+			}
+		}else if (dificuldade == 2) {
+			for(int i=0;i<(dificuldade*3);i++) {
+				String num = Integer.toString(numeros.get(i));
+				JBList.add(new ButtonRespostas(num, num));
+			}
+		}else {
+			for(int i=0;i<(dificuldade*3);i++) {
+				String num = Integer.toString(numeros.get(i));
+				JBList.add(new ButtonRespostas(num, num));
+			}
+		}
+		
+		
+		/*
 		JBList.add(new ButtonRespostas("Resposta é 3", "3"));
 		JBList.add(new ButtonRespostas("Resposta é 4", "4"));
 		JBList.add(new ButtonRespostas("Resposta é 5", "5"));
 		JBList.add(new ButtonRespostas("Resposta é 6", "6"));
 		JBList.add(new ButtonRespostas("Resposta é 7", "7"));
 		JBList.add(new ButtonRespostas("Resposta é 8", "8"));
-		JBList.add(new ButtonRespostas("Resposta é 9", "9"));
+		JBList.add(new ButtonRespostas("Resposta é 9", "9"));*/
 
 
+		Collections.shuffle(JBList);
 		Collections.shuffle(JBList);
 		for(JButton btn: JBList) {
 			painelRight.add(btn);

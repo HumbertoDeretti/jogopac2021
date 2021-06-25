@@ -22,7 +22,9 @@ public class ButtonRespostas extends JButton{
 		setSize(200, 30);
 		setVisible(true);
 	}
-
+	
+	
+	
 	public String getNome() {
 		return nome;
 	}

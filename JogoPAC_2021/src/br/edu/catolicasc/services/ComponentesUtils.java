@@ -1,6 +1,7 @@
 package br.edu.catolicasc.services;
 
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
@@ -41,5 +42,19 @@ public class ComponentesUtils {
 		return img;
 
 	}
-	
+	public int getRandomNumber(int min, int max) {
+	    return (int) ((Math.random() * (max - min)) + min);
+	}
+	public static <T> ArrayList<T> removeDuplicates(ArrayList<T> list)
+    {
+        ArrayList<T> newList = new ArrayList<T>();
+        for (T element : list) {
+
+            if (!newList.contains(element)) {
+  
+                newList.add(element);
+            }
+        }
+        return newList;
+    }
 }
