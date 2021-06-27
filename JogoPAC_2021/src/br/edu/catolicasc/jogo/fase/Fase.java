@@ -109,12 +109,19 @@ public class Fase extends JFrame {
 	}
 
 	public void validar(int i) {
-		if (i == 0) {
-			System.exit(0);
-		} else {
-			Globais.setPONTUACAO_INICIAL(1);
-			lbPontuacao.setText(Globais.getPONTUACAO_INICIAL());
+		
+		if(Globais.getPONTUACAO_INICIAL().equals("0")) {
+			System.out.println("Game Over!!");
+			
+		}else {
+			if (i == 0) {
+				System.exit(0);
+			} else {
+				Globais.setPONTUACAO_INICIAL(1);
+				lbPontuacao.setText("0"+Globais.getPONTUACAO_INICIAL());
+			}
 		}
+		
 	}
 
 	@SuppressWarnings("static-access")
