@@ -1,4 +1,4 @@
-package br.edu.catolicasc.jogo.modelo;
+	package br.edu.catolicasc.jogo.modelo;
 
 
 import javax.swing.JButton;
@@ -62,8 +62,7 @@ public class Login extends JFrame {
 		
 		btLogin.setIcon(cUtils.imageResource("lgBrain.png",0,0));
 		btLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		//btLogin.setForeground(SystemColor.controlLtHighlight);
-		//btLogin.setBackground(new Color(255, 255, 255));
+
 		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuario = txtLogin.getText();
