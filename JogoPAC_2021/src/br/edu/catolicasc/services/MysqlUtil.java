@@ -232,7 +232,7 @@ public class MysqlUtil {
 			}
 		
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e); 
 		}
 		
 		return pontos;
