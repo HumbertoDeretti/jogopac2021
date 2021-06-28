@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import br.edu.catolicasc.jogo.modelo.Pontuacao;
-import br.edu.catolicasc.jogo.modelo.UsuarioAtivo;
+import br.edu.catolicasc.parametros.UsuarioAtivo;
 
 
 /**

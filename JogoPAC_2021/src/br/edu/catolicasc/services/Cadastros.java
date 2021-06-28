@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import br.edu.catolicasc.jogo.modelo.UsuarioAtivo;
+import br.edu.catolicasc.parametros.UsuarioAtivo;
 
 public class Cadastros {
 	private static String sql;

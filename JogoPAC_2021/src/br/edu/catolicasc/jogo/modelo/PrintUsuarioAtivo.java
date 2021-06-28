@@ -2,6 +2,9 @@ package br.edu.catolicasc.jogo.modelo;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import br.edu.catolicasc.parametros.UsuarioAtivo;
+
 import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;

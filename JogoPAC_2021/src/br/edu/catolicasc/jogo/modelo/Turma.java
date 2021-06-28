@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import javax.swing.JComboBox;
 
+import br.edu.catolicasc.parametros.UsuarioAtivo;
+
 public class Turma {
 	
 	private int idTurma;

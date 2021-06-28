@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import br.edu.catolicasc.jogo.modelo.UsuarioAtivo;
 import br.edu.catolicasc.parametros.Globais;
+import br.edu.catolicasc.parametros.UsuarioAtivo;
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 import java.awt.Font;

@@ -3,6 +3,9 @@ package br.edu.catolicasc.jogo.modelo;
 import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import br.edu.catolicasc.jogo.fase.Fase;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -20,25 +23,7 @@ public class MenuJogoAluno extends JFrame {
 	private static final long serialVersionUID = 7168976433054476308L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 *//*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuJogoAluno frame = new MenuJogoAluno();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public MenuJogoAluno() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024, 728);
@@ -46,17 +31,18 @@ public class MenuJogoAluno extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 				
-		JButton btJogar =  new JButton("Jogar");
+		JButton btJogar =  new JButtonJogo("Jogar");
+
 		btJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//new Fase(2);
+				new Fase(1);
 				setVisible(false);
 			}
 		});
 		
 		
-		JButton btRankingTurma =  new JButton("Ranking da Turma");
+		JButton btRankingTurma =  new JButtonJogo("Ranking da Turma");
 		btRankingTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -65,7 +51,7 @@ public class MenuJogoAluno extends JFrame {
 			}
 		});
 		
-		JButton btRankingAluno =  new JButton("Ranking Aluno");
+		JButton btRankingAluno =  new JButtonJogo("Ranking Aluno");
 		btRankingAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

@@ -1,4 +1,4 @@
-package br.edu.catolicasc.jogo.modelo;
+package br.edu.catolicasc.parametros;
 
 import java.util.Hashtable;
 import java.util.LinkedList;
