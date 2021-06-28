@@ -39,7 +39,7 @@ public class TelaRankingAluno extends JFrame {
 
 	public TelaRankingAluno() {
 
-		banco.SelectRanking(conn);
+		banco.SelectRanking(conn); 
 
 		setSize(1024, 615);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

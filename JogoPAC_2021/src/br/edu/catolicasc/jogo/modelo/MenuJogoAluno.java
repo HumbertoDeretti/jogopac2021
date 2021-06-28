@@ -87,7 +87,7 @@ public class MenuJogoAluno extends JFrame {
 		btRankingAluno.setBounds(205, 345, 150, 60);
 		btRankingAluno.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		btRankingAluno.setOpaque(false);
-		contentPane.add(btRankingAluno);
+		contentPane.add(btRankingAluno); 
 		
 		//btRankingAluno.setForeground(new Color(255, 255, 255));
 		btJogar.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
