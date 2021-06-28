@@ -45,12 +45,16 @@ public class MenuJogoAluno extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+				
+		JButton btJogar =  new JButton("Jogar");
+		btJogar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//new Fase(2);
+				setVisible(false);
+			}
+		});
 		
-		JLabel lblNewJgoodiesLabel =  new JLabel("Jogar");
-		lblNewJgoodiesLabel.setForeground(new Color(255, 255, 255));
-		lblNewJgoodiesLabel.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 33));
-		lblNewJgoodiesLabel.setBounds(230, 195, 85, 60);
-		contentPane.add(lblNewJgoodiesLabel);
 		
 		JButton btRankingTurma =  new JButton("Ranking da Turma");
 		btRankingTurma.addActionListener(new ActionListener() {
@@ -60,6 +64,17 @@ public class MenuJogoAluno extends JFrame {
 				setVisible(false);
 			}
 		});
+		
+		JButton btRankingAluno =  new JButton("Ranking Aluno");
+		btRankingAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new TelaRankingAluno();
+				setVisible(false);
+			}
+		});
+		
+		
 		//btRankingTurma.setForeground(new Color(255, 255, 255));
 		btRankingTurma.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		btRankingTurma.setBounds(198, 275, 150, 60);
@@ -67,11 +82,19 @@ public class MenuJogoAluno extends JFrame {
 		btRankingTurma.setOpaque(false);
 		contentPane.add(btRankingTurma);
 		
-		JLabel lblNewJgoodiesLabel_2 =  new JLabel("Ranking do Aluno");
-		lblNewJgoodiesLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewJgoodiesLabel_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
-		lblNewJgoodiesLabel_2.setBounds(205, 345, 150, 60);
-		contentPane.add(lblNewJgoodiesLabel_2);
+		//btRankingAluno.setForeground(new Color(255, 255, 255));
+		btRankingAluno.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
+		btRankingAluno.setBounds(205, 345, 150, 60);
+		btRankingAluno.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		btRankingAluno.setOpaque(false);
+		contentPane.add(btRankingAluno);
+		
+		//btRankingAluno.setForeground(new Color(255, 255, 255));
+		btJogar.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
+		btJogar.setBounds(200, 195, 150, 60);
+		btJogar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		btJogar.setOpaque(false);
+		contentPane.add(btJogar);
 		
 		JLabel lblNewLabel_2 = new JLabel(imageResource("Cerebro.png", 100, 75));
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 41));

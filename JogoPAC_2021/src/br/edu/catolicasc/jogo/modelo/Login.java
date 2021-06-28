@@ -76,7 +76,7 @@ public class Login extends JFrame {
 						System.out.println("Conectado");
 						userAtivo = new UsuarioAtivo(usuario);
 						setVisible(false);
-						new Fase(2);
+						new MenuJogoAluno();
 					}
 				} catch (Exception ex) {
 					System.out.println(ex);

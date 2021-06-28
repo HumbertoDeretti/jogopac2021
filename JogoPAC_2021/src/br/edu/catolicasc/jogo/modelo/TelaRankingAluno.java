@@ -11,13 +11,15 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
+import java.sql.Connection;
 
 public class TelaRankingAluno extends JFrame {
 
 	private static final long serialVersionUID = 7304639996686864599L;
-
 	private static MysqlUtil banco = MysqlUtil.getInstance();
+	private Connection conn = banco.getConnection();
 	private ComponentesUtils cUtils = new ComponentesUtils();
+
 	@SuppressWarnings("unused")
 	private JPanel contentPane;
 	private JTable table_2;
@@ -26,7 +28,7 @@ public class TelaRankingAluno extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaRankingAluno frame = new TelaRankingAluno();
+					TelaRanking frame = new TelaRanking();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +39,7 @@ public class TelaRankingAluno extends JFrame {
 
 	public TelaRankingAluno() {
 
-		banco.SelectRankingAluno(banco.getConnection());
+		banco.SelectRanking(conn);
 
 		setSize(1024, 615);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
