@@ -85,57 +85,57 @@ public class CadastroPessoas extends JFrame {
 		// Fotos Avatares
 		ButtonGroup groupAvatar = new ButtonGroup();
 		
-		JRadioButton Avatar1 = new JRadioButton(cUtils.imageResource("Avatar_01.jpg",55,55));
+		JRadioButton Avatar1 = new JRadioButton(cUtils.imageResource("Avatar_10.jpg",55,55));
 		Avatar1.addFocusListener(new AvatarFocus(Avatar1));
 		Avatar1.setSelected(true);
 		Avatar1.setActionCommand("1");
 		Avatar1.setBounds(87, 25, 55, 55);
 		getContentPane().add(Avatar1);
 		
-		JRadioButton Avatar2 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar2 = new JRadioButton(cUtils.imageResource("Avatar_01.jpg",55,55));
 		Avatar2.addFocusListener(new AvatarFocus(Avatar2));
 		Avatar2.setActionCommand("2");
 		Avatar2.setBounds(147, 25, 55, 55);
 		getContentPane().add(Avatar2);
 		
-		JRadioButton Avatar3 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar3 = new JRadioButton(cUtils.imageResource("Avatar_02.jpg",55,55));
 		Avatar3.addFocusListener(new AvatarFocus(Avatar3));
 		Avatar3.setActionCommand("3");
 		Avatar3.setBounds(207, 25, 55, 55);
 		getContentPane().add(Avatar3);
 		
-		JRadioButton Avatar4 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar4 = new JRadioButton(cUtils.imageResource("Avatar_03.jpg",55,55));
 		Avatar4.addFocusListener(new AvatarFocus(Avatar4));
 		Avatar4.setActionCommand("4");
 		Avatar4.setBounds(267, 25, 55, 55);
 		getContentPane().add(Avatar4);
 		
-		JRadioButton Avatar5 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar5 = new JRadioButton(cUtils.imageResource("Avatar_04.jpg",55,55));
 		Avatar5.addFocusListener(new AvatarFocus(Avatar5));
 		Avatar5.setBounds(327, 25, 55, 55);
 		getContentPane().add(Avatar5);
 		
-		JRadioButton Avatar6 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar6 = new JRadioButton(cUtils.imageResource("Avatar_05.jpg",55,55));
 		Avatar6.addFocusListener(new AvatarFocus(Avatar6));
 		Avatar6.setBounds(87, 85, 55, 55);
 		getContentPane().add(Avatar6);
 		
-		JRadioButton Avatar7 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar7 = new JRadioButton(cUtils.imageResource("Avatar_06.jpg",55,55));
 		Avatar7.addFocusListener(new AvatarFocus(Avatar7));
 		Avatar7.setBounds(147, 85, 55, 55);
 		getContentPane().add(Avatar7);
 		
-		JRadioButton Avatar8 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar8 = new JRadioButton(cUtils.imageResource("Avatar_07.jpg",55,55));
 		Avatar8.addFocusListener(new AvatarFocus(Avatar8));
 		Avatar8.setBounds(207, 85, 55, 55);
 		getContentPane().add(Avatar8);
 		
-		JRadioButton Avatar9 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar9 = new JRadioButton(cUtils.imageResource("Avatar_08.jpg",55,55));
 		Avatar9.addFocusListener(new AvatarFocus(Avatar9));
 		Avatar9.setBounds(267, 85, 55, 55);
 		getContentPane().add(Avatar9);
 		
-		JRadioButton Avatar10 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar10 = new JRadioButton(cUtils.imageResource("Avatar_09.jpg",55,55));
 		Avatar10.addFocusListener(new AvatarFocus(Avatar10));
 		Avatar10.setBounds(327, 85, 55, 55);
 		getContentPane().add(Avatar10);
