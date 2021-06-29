@@ -76,7 +76,22 @@ public class Login extends JFrame {
 						System.out.println("Conectado");
 						userAtivo = new UsuarioAtivo(usuario);
 						setVisible(false);
-						new MenuJogoAluno(); 
+						
+						if(!(UsuarioAtivo.getAdmPerm() == "null")) {
+							System.out.println("ADMIN");
+							new MenuJogoAluno();
+						}
+						else if(!(UsuarioAtivo.getProfPerm()=="null")) {
+							System.out.println("PROF");
+							new MenuJogoProfessor();
+						}
+						else if(!(UsuarioAtivo.getAluPerm()=="null")) {
+							System.out.println("ALUNO");
+							new MenuJogoAluno();
+						}else {
+							System.out.println("AQUI FDP");
+						}
+						
 					}
 				} catch (Exception ex) {
 					System.out.println(ex);
