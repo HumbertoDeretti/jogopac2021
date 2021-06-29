@@ -71,9 +71,6 @@ public class TelaRanking extends JFrame {
 		model.addRow(new Object[] { "Nome", "Pontuação" });
 		for (Pontuacao p : banco.SelectRanking(conn)) {
 
-			System.out.println(p.getNome());
-			System.out.println(p.getValor());
-
 			model.addRow(new Object[] { p.getNome(), p.getValor() });
 
 		}
