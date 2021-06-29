@@ -20,7 +20,7 @@ Sequeência | Etapa | Porcentagem
 7  | Telas Cadastros | 50% - Thiago - Iniciar
 8  | Design Cadastros | 0%
 9  | Tela Fase		 | 70% - JJUNKES - Iniciar
-10 | Design Fase	 | 0% - Humberto - Iniciar
+10 | Design Fase	 | 100% - Humberto - Iniciar
 11 | 				 | 0%
 
 
