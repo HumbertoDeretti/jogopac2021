@@ -85,7 +85,7 @@ public class CadastroPessoas extends JFrame {
 		// Fotos Avatares
 		ButtonGroup groupAvatar = new ButtonGroup();
 		
-		JRadioButton Avatar1 = new JRadioButton(cUtils.imageResource("menu.png",55,55));
+		JRadioButton Avatar1 = new JRadioButton(cUtils.imageResource("Avatar_01.jpg",55,55));
 		Avatar1.addFocusListener(new AvatarFocus(Avatar1));
 		Avatar1.setSelected(true);
 		Avatar1.setActionCommand("1");
