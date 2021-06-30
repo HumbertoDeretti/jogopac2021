@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.EventQueue;
+
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 import javax.swing.JTable;
@@ -74,6 +75,7 @@ public class TelaRanking extends JFrame {
 			model.addRow(new Object[] { p.getNome(), p.getValor() });
 
 		}
+		
 
 		setVisible(true);
 

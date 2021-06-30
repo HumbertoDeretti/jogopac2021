@@ -83,7 +83,7 @@ public class Login extends JFrame {
 						}
 						else if(!(UsuarioAtivo.getProfPerm()=="null")) {
 							System.out.println("PROF");
-							new MenuJogoProfessor();
+							new MenuJogoAluno();
 						}
 						else if(!(UsuarioAtivo.getAluPerm()=="null")) {
 							System.out.println("ALUNO");

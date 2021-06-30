@@ -2,8 +2,11 @@ package br.edu.catolicasc.jogo.modelo;
 
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -42,6 +45,18 @@ public class MenuJogoProfessor extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
+		
+		
+		JButton btCadastroTurma =  new JButtonJogo("Cadastro de Turma");
+		btCadastroTurma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new TesteCadastroSerie();
+				setVisible(false);
+			}
+		});
+		
+		
 
 		JLabel lblNewJgoodiesTitle = new JLabel("Menu do");
 		lblNewJgoodiesTitle.setForeground(new Color(244, 164, 96));
@@ -55,11 +70,9 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewJgoodiesTitle_1.setBounds(580, 140, 340, 65);
 		contentPane.add(lblNewJgoodiesTitle_1);
 		
-		JLabel lblNewJgoodiesLabel_1 = new JLabel("Cadastro de Turma");
-		lblNewJgoodiesLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewJgoodiesLabel_1.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
-		lblNewJgoodiesLabel_1.setBounds(700, 230, 160, 65);
-		contentPane.add(lblNewJgoodiesLabel_1);
+		btCadastroTurma.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
+		btCadastroTurma.setBounds(650, 230, 250, 65);
+		contentPane.add(btCadastroTurma);
 		JLabel lblNewLabel_6 = new JLabel(imageResource("Botao1.png", 200, 75));
 		lblNewLabel_6.setBounds(675, 230, 200, 75);
 		contentPane.add(lblNewLabel_6);
