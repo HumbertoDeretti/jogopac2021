@@ -95,62 +95,62 @@ public class CadastroPessoas extends JFrame {
 		JRadioButton Avatar1 = new JRadioButton(cUtils.imageResource("Avatar_10.jpg",55,55));
 		Avatar1.addFocusListener(new AvatarFocus(Avatar1));
 		Avatar1.setSelected(true);
-		Avatar1.setActionCommand("Avatar_10");
+		Avatar1.setActionCommand("1");
 		Avatar1.setBounds(87, 25, 55, 55);
 		getContentPane().add(Avatar1);
 		
 		JRadioButton Avatar2 = new JRadioButton(cUtils.imageResource("Avatar_01.jpg",55,55));
 		Avatar2.addFocusListener(new AvatarFocus(Avatar2));
-		Avatar2.setActionCommand("Avatar_01");
+		Avatar2.setActionCommand("2");
 		Avatar2.setBounds(147, 25, 55, 55);
 		getContentPane().add(Avatar2);
 		
 		JRadioButton Avatar3 = new JRadioButton(cUtils.imageResource("Avatar_02.jpg",55,55));
 		Avatar3.addFocusListener(new AvatarFocus(Avatar3));
-		Avatar3.setActionCommand("Avatar_02");
+		Avatar3.setActionCommand("3");
 		Avatar3.setBounds(207, 25, 55, 55);
 		getContentPane().add(Avatar3);
 		
 		JRadioButton Avatar4 = new JRadioButton(cUtils.imageResource("Avatar_03.jpg",55,55));
 		Avatar4.addFocusListener(new AvatarFocus(Avatar4));
-		Avatar4.setActionCommand("Avatar_03");
+		Avatar4.setActionCommand("4");
 		Avatar4.setBounds(267, 25, 55, 55);
 		getContentPane().add(Avatar4);
 		
 		JRadioButton Avatar5 = new JRadioButton(cUtils.imageResource("Avatar_04.jpg",55,55));
 		Avatar5.addFocusListener(new AvatarFocus(Avatar5));
-		Avatar5.setActionCommand("Avatar_04");
+		Avatar5.setActionCommand("5");
 		Avatar5.setBounds(327, 25, 55, 55);
 		getContentPane().add(Avatar5);
 		
 		JRadioButton Avatar6 = new JRadioButton(cUtils.imageResource("Avatar_05.jpg",55,55));
 		Avatar6.addFocusListener(new AvatarFocus(Avatar6));
-		Avatar6.setActionCommand("Avatar_05");
+		Avatar6.setActionCommand("6");
 		Avatar6.setBounds(87, 85, 55, 55);
 		getContentPane().add(Avatar6);
 		
 		JRadioButton Avatar7 = new JRadioButton(cUtils.imageResource("Avatar_06.jpg",55,55));
 		Avatar7.addFocusListener(new AvatarFocus(Avatar7));
-		Avatar7.setActionCommand("Avatar_06");
+		Avatar7.setActionCommand("7");
 		Avatar7.setBounds(147, 85, 55, 55);
 		getContentPane().add(Avatar7);
 		
 		JRadioButton Avatar8 = new JRadioButton(cUtils.imageResource("Avatar_07.jpg",55,55));
 		Avatar8.addFocusListener(new AvatarFocus(Avatar8));
-		Avatar8.setActionCommand("Avatar_07");
+		Avatar8.setActionCommand("8");
 		Avatar8.setBounds(207, 85, 55, 55);
 		getContentPane().add(Avatar8);
 		
 		JRadioButton Avatar9 = new JRadioButton(cUtils.imageResource("Avatar_08.jpg",55,55));
 		Avatar9.addFocusListener(new AvatarFocus(Avatar9));
 		Avatar9.setBounds(267, 85, 55, 55);
-		Avatar9.setActionCommand("Avatar_08");
+		Avatar9.setActionCommand("9");
 		getContentPane().add(Avatar9);
 		
 		JRadioButton Avatar10 = new JRadioButton(cUtils.imageResource("Avatar_09.jpg",55,55));
 		Avatar10.addFocusListener(new AvatarFocus(Avatar10));
 		Avatar10.setBounds(327, 85, 55, 55);
-		Avatar10.setActionCommand("Avatar_09");
+		Avatar10.setActionCommand("10");
 		getContentPane().add(Avatar10);
 		
 		groupAvatar.add(Avatar1);
@@ -167,8 +167,7 @@ public class CadastroPessoas extends JFrame {
 		JButton btCadastrar = new JButton("Cadastrar");
 		btCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-				System.out.println("Select: " + groupAvatar.getSelection().getActionCommand());
-			
+				bd.newPessoa(txtNomePessoa.getText(), DataNascimento.getText(), groupAvatar.getSelection().getActionCommand(), bd.getConnection());
 			}
 		});
 		btCadastrar.setForeground(new Color(255, 255, 255));

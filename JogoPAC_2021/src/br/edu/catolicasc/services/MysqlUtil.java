@@ -197,6 +197,12 @@ public class MysqlUtil {
 		Cadastros.novaSerie(nome, conn);
 	}
 	
+	public void newPessoa(String nome, String data, String avatar, Connection conn) {
+		System.out.println(conn);
+		Cadastros.novaPessoa(nome, data, avatar, conn);
+		
+	}
+	
 	public void newTurma(String nome,int idSerie,Connection conn) {
 		System.out.println(conn);
 		Cadastros.novaTurma(nome,idSerie, conn);
