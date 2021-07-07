@@ -23,6 +23,20 @@ public class ComponentesUtils {
 
 	}
 	
+	public ImageIcon imageResourceAvatar(String path, int w, int h) {
+
+		ImageIcon img;
+		if (w == 0) {
+			img = new ImageIcon(getClass().getResource("/resources_avatar/" + path));
+		} else {
+			img = new ImageIcon(new ImageIcon(getClass().getResource("/resources_avatar/" + path)).getImage()
+					.getScaledInstance(w, h, Image.SCALE_SMOOTH));
+		}
+
+		return img;
+
+	}
+	
 	public ImageIcon avatarResource(String path) {
 		ImageIcon img;
 		img = new ImageIcon(new ImageIcon(getClass().getResource("/resources_avatar/" + path)).getImage().getScaledInstance(Globais.LARGURA_AVATAR, Globais.ALTURA_AVATAR, Image.SCALE_SMOOTH));
