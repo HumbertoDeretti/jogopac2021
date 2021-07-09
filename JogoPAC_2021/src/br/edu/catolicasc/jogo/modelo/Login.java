@@ -35,15 +35,9 @@ public class Login extends JFrame {
 	@SuppressWarnings("unused")
 	private UsuarioAtivo userAtivo;
 	
-
-	
-	
     private boolean FAST_LOGIN = true;
     
 	public Login() {
-		
-		
-		
 		
 		setBackground(SystemColor.menu);
 		
@@ -53,7 +47,6 @@ public class Login extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		this.setResizable(false);
-		
 		
 		JButton btLogin = new JButton("");
 		
