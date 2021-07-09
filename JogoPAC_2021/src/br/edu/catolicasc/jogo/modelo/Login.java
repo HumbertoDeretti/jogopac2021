@@ -67,11 +67,13 @@ public class Login extends JFrame {
 		btLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuario = txtLogin.getText();
+				btLogin.setEnabled(false);
 				try {
 					if(!bd.validaUser(usuario, txtSenha.getText(),bd.getConnection())) {
 						System.out.println("Usuario ou senha inválido.");
 						JOptionPane.showMessageDialog(null, "Digita certo que funciona...");
 						userAtivo = null;
+						btLogin.setEnabled(true);
 					}else {
 						System.out.println("Conectado");
 						userAtivo = new UsuarioAtivo(usuario);
