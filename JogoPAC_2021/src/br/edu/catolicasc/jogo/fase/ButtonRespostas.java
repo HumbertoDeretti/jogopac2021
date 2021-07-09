@@ -64,6 +64,7 @@ public class ButtonRespostas extends JButton implements ActionListener, MouseLis
 
 		} else {
 			fase.validar(1);
+			setEnabled(false);
 		}
 	}
 

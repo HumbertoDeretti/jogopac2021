@@ -137,7 +137,7 @@ public class Fase extends JFrame {
 			if (num >= 0) {
 				numeros.add(num);
 			}
-			numeros.add(cUtils.getRandomNumber((resposta + 1), (resposta + 30)));
+			numeros.add(cUtils.getRandomNumber((resposta + 1), (resposta + 20)));
 		}
 		numeros = cUtils.removeDuplicates(numeros);
 		Collections.shuffle(numeros);

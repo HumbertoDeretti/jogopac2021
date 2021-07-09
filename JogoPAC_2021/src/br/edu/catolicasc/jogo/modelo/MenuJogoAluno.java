@@ -36,7 +36,7 @@ public class MenuJogoAluno extends JFrame {
 		btJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				new Fase(2);
+				new Fase(6);
 				setVisible(false);
 			}
 		});
