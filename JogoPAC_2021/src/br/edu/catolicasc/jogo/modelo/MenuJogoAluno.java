@@ -115,7 +115,7 @@ public class MenuJogoAluno extends JFrame {
 		contentPane.add(lblNewJgoodiesTitle_1);
 		lblNewJgoodiesTitle_1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
-		JLabel lblNewLabel_8 = new JLabel(imageResource("Botao1.png", 150, 60));
+		JLabel lblNewLabel_8 = new JLabel(imageResource("Botao10.png", 150, 60));
 		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 41));
 		lblNewLabel_8.setBounds(195, 200, 150, 60);
 		contentPane.add(lblNewLabel_8);
