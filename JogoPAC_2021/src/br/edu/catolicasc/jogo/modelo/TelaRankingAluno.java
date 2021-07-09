@@ -53,7 +53,7 @@ public class TelaRankingAluno extends JFrame {
 		getContentPane().add(scrollPane);
 
 		table_2 = new JTable();
-		table_2.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
+		table_2.setFont(new Font("Malgun Gothic", Font.PLAIN, 20));
 
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Nome");
