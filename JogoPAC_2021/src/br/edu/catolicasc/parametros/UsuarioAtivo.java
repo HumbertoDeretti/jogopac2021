@@ -35,9 +35,11 @@ public class UsuarioAtivo {
 		gerarDados(usuario);
 
 	}
+	
 	public static void Update() {
 		gerarDados(UsuarioAtivo.usuario);
 	}
+	
 	private static void gerarDados(String usuario) {
 		int index = 0;
 		list = bd.userDados(usuario, bd.getConnection());
@@ -56,7 +58,7 @@ public class UsuarioAtivo {
 		UsuarioAtivo.nomeTurma = list.get(index).get("NOME_TURMA");
 		UsuarioAtivo.lastStage =list.get(index).get("LAST_STAGE");
 	}
-
+	
 	public static int getIdPessoa() {
 		return idPessoa;
 	}
