@@ -30,19 +30,26 @@ public class ButtonRespostas extends JButton implements ActionListener, MouseLis
 		this.commandValue = commandValue;
 		this.resposta = resposta;
 		this.fase = fase;
-
-		setText(this.nome);
+		if(Integer.parseInt(commandValue)<10) {
+			this.nome = "0"+this.nome;
+		}
+		
+		setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+	    setVerticalAlignment(javax.swing.SwingConstants.TOP);
+	    setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+		//setText("<html><hr /><br /><img src=" + "file:Botao1.png" + "/><br />Texto<br /><hr /></html>");
 		setActionCommand(this.commandValue);
 		setBackground(Color.decode("#AFD3DB"));
-	
-		//setOpaque(false);//BOTAO SEM FUNDO
-		//setContentAreaFilled(false);//BOTAO SEM FUNDO
-		//setBorderPainted(false);//BOTAO SEM FUNDO
-		setAlignmentX(CENTER_ALIGNMENT);
+	 
+		setOpaque(false);//BOTAO SEM FUNDO
+		setContentAreaFilled(false);//BOTAO SEM FUNDO
+		setBorderPainted(false);//BOTAO SEM FUNDO
+		//setAlignmentX(CENTER_ALIGNMENT);
 		setIcon(cUtils.imageResource("Botao1.png", 30, 50));
+		setText(this.nome);
 		setFont(new Font(Globais.FONT_NAME_RESPOSTA, Font.BOLD, Globais.FONT_SIZE_RESPOSTA));
 		setSize(70, 50);
-
+		
 		addActionListener(this);
 		addMouseListener(this);
 
