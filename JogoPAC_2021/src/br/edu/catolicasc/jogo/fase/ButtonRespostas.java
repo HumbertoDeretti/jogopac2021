@@ -45,7 +45,7 @@ public class ButtonRespostas extends JButton implements ActionListener, MouseLis
 		setContentAreaFilled(false);//BOTAO SEM FUNDO
 		setBorderPainted(false);//BOTAO SEM FUNDO
 		//setAlignmentX(CENTER_ALIGNMENT);
-		setIcon(cUtils.imageResource("Botao4.png", 100, 100));
+		setIcon(cUtils.imageResource("Botao3.png", 100, 75));
 		setText(this.nome);
 		setFont(new Font(Globais.FONT_NAME_RESPOSTA, Font.BOLD, Globais.FONT_SIZE_RESPOSTA));
 		setSize(100, 100);
