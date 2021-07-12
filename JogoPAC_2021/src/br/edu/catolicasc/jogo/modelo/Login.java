@@ -81,8 +81,13 @@ public class Login extends JFrame {
 							new MenuJogoAluno();
 						}
 						else if(!(UsuarioAtivo.getAluPerm()=="null")) {
-							System.out.println("ALUNO");
-							new MenuJogoAluno();
+							System.out.println("ALUNO 84 - Login");
+							try {
+								new MenuJogoAluno();
+							} catch (Exception e2) {
+								System.out.println("Erro Invoke class MenuJogoAluno");
+							}
+							
 						}else {
 							System.out.println("AQUI FDP");
 						}

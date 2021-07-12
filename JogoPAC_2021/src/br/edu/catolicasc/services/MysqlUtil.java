@@ -72,6 +72,7 @@ public class MysqlUtil {
 		String pwd = encrypt.gerarMD5(senha);
 		isValid = false;
 		sql = "select senha from LOGIN where LOGIN=\'"+usuario+"\' and SENHA=\'"+pwd+"\'";
+		System.out.println("AQUI 75");
 		try {
 			statement = conn.createStatement();
 			resultSet = statement.executeQuery(sql);
