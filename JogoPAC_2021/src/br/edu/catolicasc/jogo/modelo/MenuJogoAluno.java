@@ -160,6 +160,7 @@ public class MenuJogoAluno extends JFrame {
 		} catch (Exception e) {
 			System.out.println("ERRO: Arquivo "+path+" - Verifique o log abaixo.");
 			System.out.println(e);
+			System.out.println("Aqui");
 			return null;
 		}
 		
