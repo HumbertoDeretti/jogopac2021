@@ -25,21 +25,18 @@ public class MenuJogoAluno extends JFrame {
 
 	
 	public MenuJogoAluno() {
-		System.out.println("AQUI 28 - MenuJogo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024, 728);
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-		
-		
-		
+				
 		JButton btJogar =  new JButtonJogo("Jogar");
-		
+
 		btJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("AQUI 38 - MenuJogo");
-				new Fase(1);
+				
+				new Fase(6);
 				setVisible(false);
 			}
 		});
@@ -67,21 +64,21 @@ public class MenuJogoAluno extends JFrame {
 		//btRankingTurma.setForeground(new Color(255, 255, 255));
 		btRankingTurma.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		btRankingTurma.setBounds(198, 275, 150, 60);
-		//btRankingTurma.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		btRankingTurma.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		btRankingTurma.setOpaque(false);
 		contentPane.add(btRankingTurma);
 		
 		//btRankingAluno.setForeground(new Color(255, 255, 255));
 		btRankingAluno.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		btRankingAluno.setBounds(205, 345, 150, 60);
-		//btRankingAluno.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		btRankingAluno.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		btRankingAluno.setOpaque(false);
 		contentPane.add(btRankingAluno); 
 		
 		//btRankingAluno.setForeground(new Color(255, 255, 255));
 		btJogar.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		btJogar.setBounds(200, 195, 150, 60);
-		//btJogar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
+		btJogar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		btJogar.setOpaque(false);
 		contentPane.add(btJogar);
 		
@@ -118,7 +115,7 @@ public class MenuJogoAluno extends JFrame {
 		contentPane.add(lblNewJgoodiesTitle_1);
 		lblNewJgoodiesTitle_1.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		
-		JLabel lblNewLabel_8 = new JLabel(imageResource("Botao1.png", 150, 60));
+		JLabel lblNewLabel_8 = new JLabel(imageResource("Botao10.png", 150, 60));
 		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 41));
 		lblNewLabel_8.setBounds(195, 200, 150, 60);
 		contentPane.add(lblNewLabel_8);
@@ -148,22 +145,15 @@ public class MenuJogoAluno extends JFrame {
 	}
 	
 	private ImageIcon imageResource(String path,int w,int h) {
+		
 		ImageIcon img;
-		try {
-			if(w==0) {
-				img = new ImageIcon(getClass().getResource("/resources/"+path));
-			}else {
-				img = new ImageIcon(new ImageIcon(getClass().getResource("/resources/"+path)).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
-			}
-			
-			return img;
-		} catch (Exception e) {
-			System.out.println("ERRO: Arquivo "+path+" - Verifique o log abaixo.");
-			System.out.println(e);
-			return null;
+		if(w==0) {
+			img = new ImageIcon(getClass().getResource("/resources/"+path));
+		}else {
+			img = new ImageIcon(new ImageIcon(getClass().getResource("/resources/"+path)).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
 		}
 		
-		
+		return img;
 		
 	}
 }
