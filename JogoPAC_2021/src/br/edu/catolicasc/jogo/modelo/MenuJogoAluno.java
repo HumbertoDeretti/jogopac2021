@@ -145,15 +145,22 @@ public class MenuJogoAluno extends JFrame {
 	}
 	
 	private ImageIcon imageResource(String path,int w,int h) {
-		
 		ImageIcon img;
-		if(w==0) {
-			img = new ImageIcon(getClass().getResource("/resources/"+path));
-		}else {
-			img = new ImageIcon(new ImageIcon(getClass().getResource("/resources/"+path)).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
+		try {
+			if(w==0) {
+				img = new ImageIcon(getClass().getResource("/resources/"+path));
+			}else {
+				img = new ImageIcon(new ImageIcon(getClass().getResource("/resources/"+path)).getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH));
+			}
+		} catch (Exception e) {
+			System.out.println("ERRO ARQUIVO "+path);
+			System.out.println(e);
+			return null;
 		}
 		
-		return img;
+		
+		
+		
 		
 	}
 }
