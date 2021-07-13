@@ -69,13 +69,14 @@ public class Cadastros {
 			//System.out.println(sql);
 			preparedStmt.execute();
 			JOptionPane.showMessageDialog(null, "Cadastrado Pessoa: "+nome+ "\nOK","Sucesso",JOptionPane.INFORMATION_MESSAGE);
+			registraAluno(nome,conn);
 		}catch (SQLException e){
 			error = e.getMessage();
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, error,"Erro",JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	public static void registraAluno(String nome,String avatar,Connection conn) {
+	public static void registraAluno(String nome,Connection conn) {
 		sql = "insert into ALUNOS (ID_PESSOA, ID_TURMA,ID_PROFESSOR) values (\"select id_pessoa from PESSOA where nome = '\"+nome+\"'\",?,?)";
 		
 		try {
@@ -88,11 +89,11 @@ public class Cadastros {
 			//preparedStmt.setString(2, data);
 			//System.out.println(sql);
 			preparedStmt.execute();
-			JOptionPane.showMessageDialog(null, "Cadastrado Pessoa: "+nome+ "\nOK","Sucesso",JOptionPane.INFORMATION_MESSAGE);
+			//JOptionPane.showMessageDialog(null, "Cadastrado Pessoa: "+nome+ "\nOK","Sucesso",JOptionPane.INFORMATION_MESSAGE);
 		}catch (SQLException e){
 			error = e.getMessage();
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, error,"Erro",JOptionPane.ERROR_MESSAGE);
+			//JOptionPane.showMessageDialog(null, error,"Erro",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	public static void novaTurma(String nome,int idSerie, Connection conn) {
