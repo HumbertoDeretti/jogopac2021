@@ -165,6 +165,7 @@ public class MenuJogoAluno extends JFrame {
 		setVisible(true);
 		
 	}
+	
 	public void setVisivel() {
 		if(ativo) {
 			ativo = false;
