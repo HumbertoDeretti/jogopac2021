@@ -20,21 +20,6 @@ public class MenuJogoProfessor extends JFrame {
 	private static final long serialVersionUID = 6020196052955276117L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuJogoProfessor frame = new MenuJogoProfessor();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
 
 	/**
 	 * Create the frame.
@@ -44,6 +29,7 @@ public class MenuJogoProfessor extends JFrame {
 		setSize(1024, 728);
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		
 		

@@ -35,6 +35,7 @@ public class Login extends JFrame {
 	private UsuarioAtivo userAtivo;
 	
     private boolean FAST_LOGIN = true;
+    private boolean FAST_LOGIN_PROF = true;
     
 	public Login() {
 		
@@ -82,7 +83,7 @@ public class Login extends JFrame {
 						else if(!(UsuarioAtivo.getAluPerm()=="null")) {
 						
 							try {
-								new MenuJogoAluno();
+								//new MenuJogoAluno();
 							} catch (Exception e2) {
 								System.out.println("Erro Invoke class MenuJogoAluno");
 							}
@@ -107,7 +108,11 @@ public class Login extends JFrame {
 		txtLogin = new JTextFieldPlaceholder("Login");
 		
 		if(FAST_LOGIN) {
-			txtLogin.setText("jonatha");
+			if(FAST_LOGIN_PROF) {
+				txtLogin.setText("humberto");
+			}else {
+				txtLogin.setText("jonatha");
+			}
 		}
 		txtLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtLogin.setHorizontalAlignment(SwingConstants.CENTER);
