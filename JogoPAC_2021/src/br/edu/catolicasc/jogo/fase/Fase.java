@@ -197,14 +197,9 @@ public class Fase extends JFrame {
 		Collections.shuffle(JBList);
 		Collections.shuffle(JBList);
 		for (JButton btn : JBList) {
-			
-			
-			JLabel lb = new JLabel(btn.getActionCommand());
-			lb.setBounds(btn.getBounds(getBounds()));
-			painelRight.add(lb);
+			JLabel lb = new JLabel(btn.getActionCommand());			
 			painelRight.add(btn);
-			System.out.println(btn.getBounds());
-			System.out.println(lb.getBounds());
+			
 		}
 
 	}
