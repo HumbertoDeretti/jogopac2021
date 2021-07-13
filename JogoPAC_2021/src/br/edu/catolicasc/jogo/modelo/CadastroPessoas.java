@@ -1,6 +1,5 @@
 package br.edu.catolicasc.jogo.modelo;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JFrame;
@@ -31,30 +30,12 @@ public class CadastroPessoas extends JFrame {
 	private static String sql;
 	private static String error;
 	private ComponentesUtils cUtils = new ComponentesUtils();
-	/**
-	 * Launch the application.
-	 */
-	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CadastroPessoas frame = new CadastroPessoas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-	
-	/**
-	 * Create the frame.
-	 */
+
 	public CadastroPessoas() {
 		setSize(new Dimension(490, 340));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Cadastrar Pessoa");
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		setResizable(false);
 		
@@ -170,5 +151,7 @@ public class CadastroPessoas extends JFrame {
 		btCadastrar.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE_TITLE));
 		btCadastrar.setBounds(111, 245, 243, 35); 
 		getContentPane().add(btCadastrar);
+		
+		setVisible(true);
 	}
 }

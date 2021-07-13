@@ -38,11 +38,25 @@ public class MenuJogoProfessor extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				new TesteCadastroSerie();
-				setVisible(false);
+				
 			}
 		});
+		btCadastroTurma.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
+		btCadastroTurma.setBounds(655, 230, 250, 65);
+		contentPane.add(btCadastroTurma);
 		
 		
+		JButton btCadastroAluno =  new JButtonJogo("Cadastro de Aluno");
+		btCadastroAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new CadastroPessoas();
+				
+			}
+		});
+		btCadastroAluno.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
+		btCadastroAluno.setBounds(520, 315, 250, 65);
+		contentPane.add(btCadastroAluno);
 
 		JLabel lblNewJgoodiesTitle = new JLabel("Menu do");
 		lblNewJgoodiesTitle.setForeground(new Color(244, 164, 96));
@@ -56,9 +70,7 @@ public class MenuJogoProfessor extends JFrame {
 		lblNewJgoodiesTitle_1.setBounds(580, 140, 340, 65);
 		contentPane.add(lblNewJgoodiesTitle_1);
 		
-		btCadastroTurma.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
-		btCadastroTurma.setBounds(650, 230, 250, 65);
-		contentPane.add(btCadastroTurma);
+		
 		JLabel lblNewLabel_6 = new JLabel(imageResource("Botao1.png", 200, 75));
 		lblNewLabel_6.setBounds(675, 230, 200, 75);
 		contentPane.add(lblNewLabel_6);
