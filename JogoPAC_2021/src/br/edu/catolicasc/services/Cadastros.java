@@ -77,14 +77,13 @@ public class Cadastros {
 		}
 	}
 	public static void registraAluno(String nome,Connection conn) {
-		sql = "insert into ALUNOS (ID_PESSOA, ID_TURMA,ID_PROFESSOR) values (\"select id_pessoa from PESSOA where nome = '\"+nome+\"'\",?,?)";
+		sql = "insert into ALUNOS (ID_PESSOA, ID_TURMA,ID_PROFESSOR) values (\"select ID_PESSOA from PESSOA where NOME = '\"+nome+\"'\",?,?)";
 		
 		try {
 			PreparedStatement preparedStmt = conn.prepareStatement(sql);
 			
-			preparedStmt.setString(1,  nome);
-			preparedStmt.setInt(2, 2);
-			preparedStmt.setInt(3, UsuarioAtivo.getIdPessoa());
+			preparedStmt.setInt(1, 2);
+			preparedStmt.setInt(2, UsuarioAtivo.getIdPessoa());
 			
 			//preparedStmt.setString(2, data);
 			//System.out.println(sql);

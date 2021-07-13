@@ -34,8 +34,8 @@ public class Login extends JFrame {
 	@SuppressWarnings("unused")
 	private UsuarioAtivo userAtivo;
 	
-    private boolean FAST_LOGIN = true;
-    private boolean FAST_LOGIN_PROF = true;
+    private boolean FAST_LOGIN = false;
+    private boolean FAST_LOGIN_PROF = false;
     
 	public Login() {
 		
