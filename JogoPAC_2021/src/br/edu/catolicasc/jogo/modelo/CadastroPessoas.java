@@ -5,8 +5,6 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import br.edu.catolicasc.parametros.Globais;
 import br.edu.catolicasc.services.AvatarFocus;
 import br.edu.catolicasc.services.ComponentesUtils;
@@ -18,9 +16,6 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;

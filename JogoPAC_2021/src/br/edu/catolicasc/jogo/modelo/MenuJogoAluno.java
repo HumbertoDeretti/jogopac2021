@@ -36,6 +36,7 @@ public class MenuJogoAluno extends JFrame {
 		setSize(1024, 728);
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		try {
 			idFase = Integer.parseInt(UsuarioAtivo.getLastStage())+1;

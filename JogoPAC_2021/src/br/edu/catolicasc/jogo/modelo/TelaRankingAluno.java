@@ -3,7 +3,6 @@ package br.edu.catolicasc.jogo.modelo;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import java.awt.EventQueue;
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 import javax.swing.JTable;
@@ -46,7 +45,7 @@ public class TelaRankingAluno extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setSize(new Dimension(671, 288));
 		scrollPane.setPreferredSize(new Dimension(600, 200));
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setBounds(213, 66, 671, 288);
 		getContentPane().add(scrollPane);
@@ -69,7 +68,7 @@ public class TelaRankingAluno extends JFrame {
 		model.addColumn("Nome");
 		model.addColumn("Pontuação");
 		model.addColumn("Fase");
-		//model.addRow(new Object[] { "Nome", "Pontuação","Fase" });
+
 		for (Pontuacao p : banco.SelectRankingAluno(banco.getConnection())) {
 
 			model.addRow(new Object[] { p.getNome(), p.getValor(),p.getIdFase() });

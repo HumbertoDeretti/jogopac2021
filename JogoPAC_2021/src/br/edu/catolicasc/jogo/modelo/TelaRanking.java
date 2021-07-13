@@ -3,14 +3,16 @@ package br.edu.catolicasc.jogo.modelo;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import java.awt.EventQueue;
-
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 import javax.swing.JTable;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
-import javax.swing.border.BevelBorder;
+
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -27,11 +29,9 @@ public class TelaRanking extends JFrame {
 	private JPanel contentPane;
 	private JTable table_2;
 
-	
-
 	public TelaRanking(MenuJogoAluno menu) {
 
-		banco.SelectRanking(conn);  
+		// banco.SelectRanking(conn);
 
 		setSize(1024, 615);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -41,40 +41,46 @@ public class TelaRanking extends JFrame {
 		getContentPane().setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 2, 2);
+		scrollPane.setBounds(183, 94, 682, 302);
+		scrollPane.setSize(new Dimension(682, 302));
+		scrollPane.setPreferredSize(new Dimension(600, 200));
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
 		getContentPane().add(scrollPane);
-
+		
+		JLabel lbBackground = new JLabel(cUtils.imageResource("fundoranking2.jpg", 0, 0));
+		lbBackground.setSize(1024, 615);
+		getContentPane().add(lbBackground);
+		
 		table_2 = new JTable();
-		table_2.setFont(new Font("Malgun Gothic", Font.PLAIN, 20));
-
+		table_2.setFont(new Font("Malgun Gothic", Font.PLAIN, 25));
+		table_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		table_2.setRowHeight(40);
+		table_2.setShowVerticalLines(false);
+		table_2.setGridColor(Color.MAGENTA);
+		table_2.setFillsViewportHeight(true);
+		table_2.setBounds(183, 94, 682, 302);
+		
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Nome");
 		model.addColumn("Pontuação");
-		table_2.setDragEnabled(true);
-		table_2.setBorder(null);
-		table_2.setBounds(183, 94, 682, 302);
-		getContentPane().add(table_2);
-		table_2.setModel(model);
-
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(cUtils.imageResource("fundoranking2.jpg", 0, 0));
-		lblNewLabel.setSize(1024, 615);
-		getContentPane().add(lblNewLabel);
-
-		model.addRow(new Object[] { "Nome", "Pontuação" });
+		//model.addRow(new Object[] { "Nome", "Pontuação" });
 		for (Pontuacao p : banco.SelectRanking(conn)) {
 
 			model.addRow(new Object[] { p.getNome(), p.getValor() });
 
 		}
-		addWindowListener(new WindowAdapter() {
-			   public void windowClosing(WindowEvent evt) {
-				     menu.setVisivel();
-				     dispose();
-				   }
-				  });
 		
-		setVisible(true);
+		table_2.setModel(model);
+		scrollPane.setViewportView(table_2);
 
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent evt) {
+				menu.setVisivel();
+				dispose();
+			}
+		});
+		setVisible(true);
 	}
 }
