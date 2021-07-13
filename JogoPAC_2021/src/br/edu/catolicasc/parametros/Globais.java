@@ -13,6 +13,7 @@ public abstract class Globais {
 	//PADRÕES DE FONTS
 	
 	public final static int FONT_SIZE_TITLE = 20;
+	public final static int FONT_SIZE_BT = 24;
 	public final static int FONT_SIZE = 14;
 
 	public final static String FONT_NAME_TITLE = "Arial Black";

@@ -12,8 +12,14 @@ import br.edu.catolicasc.parametros.UsuarioAtivo;
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+
 import javax.swing.JPanel;
+import javax.swing.JToggleButton;
+
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -196,8 +202,8 @@ public class Fase extends JFrame {
 
 		Collections.shuffle(JBList);
 		Collections.shuffle(JBList);
-		for (JButton btn : JBList) {
-			JLabel lb = new JLabel(btn.getActionCommand());			
+		for (JLabel btn : JBList) {
+			
 			painelRight.add(btn);
 			
 		}

@@ -1,6 +1,7 @@
 package br.edu.catolicasc.jogo.fase;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,12 +9,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JToggleButton;
+
 import br.edu.catolicasc.parametros.Globais;
 import br.edu.catolicasc.services.ComponentesUtils;
 
-public class ButtonRespostas extends JButton implements ActionListener, MouseListener {
+public class ButtonRespostas extends JLabel implements ActionListener, MouseListener {
 	/**
-	 * 
+	 * JButton
 	 */
 	private static final long serialVersionUID = 8698217818012188809L;
 	private String nome;
@@ -34,28 +38,33 @@ public class ButtonRespostas extends JButton implements ActionListener, MouseLis
 			this.nome = "0"+this.nome;
 		}
 		
+		JLabel l = new JLabel(commandValue);
 		
 		//setActionCommand(this.commandValue);
 		//setBackground(Color.decode("#AFD3DB"));
+		
 		//setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 		//setText("<html><hr /><br /><img src=" + "file:Botao1.png" + "/><br />Texto<br /><hr /></html>");
-		setVerticalAlignment(javax.swing.SwingConstants.TOP);
-	    setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+		//setVerticalAlignment(javax.swing.SwingConstants.TOP);
+	    //setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 	  
-		setOpaque(false);//BOTAO SEM FUNDO
-		setContentAreaFilled(false);//BOTAO SEM FUNDO
-		setBorderPainted(false);//BOTAO SEM FUNDO
+		//setOpaque(false);//BOTAO SEM FUNDO
+		//setContentAreaFilled(false);//BOTAO SEM FUNDO
+		//setBorderPainted(false);//BOTAO SEM FUNDO
 		//setAlignmentX(CENTER_ALIGNMENT);
 		setIcon(cUtils.imageResource("BotaoLaranja.png", 100, 45));
 		//setText(this.nome);
 		setFont(new Font(Globais.FONT_NAME_RESPOSTA, Font.BOLD, Globais.FONT_SIZE_RESPOSTA));
+		l.setFont(new Font(Globais.FONT_NAME_RESPOSTA, Font.BOLD, Globais.FONT_SIZE_BT));
 		setSize(100, 75);
+        l.setSize(100, 75);
 		
-		
-		
-		addActionListener(this);
+		setLayout(new FlowLayout(FlowLayout.CENTER));
+		//addComponentListener(this);
 		addMouseListener(this);
-
+		
+		add(l);
+		
 		setVisible(true);
 
 	}
@@ -90,7 +99,13 @@ public class ButtonRespostas extends JButton implements ActionListener, MouseLis
 	}
 
 	public void mouseClicked(MouseEvent e) {
+		if (commandValue.equals(resposta)) {
+			fase.validar(0);
 
+		} else {
+			fase.validar(1);
+			setEnabled(false);
+		}
 	}
 
 	public void mousePressed(MouseEvent e) {
