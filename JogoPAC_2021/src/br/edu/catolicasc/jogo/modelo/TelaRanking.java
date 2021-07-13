@@ -12,6 +12,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 
 public class TelaRanking extends JFrame {
@@ -25,25 +27,14 @@ public class TelaRanking extends JFrame {
 	private JPanel contentPane;
 	private JTable table_2;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaRanking frame = new TelaRanking();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
-	public TelaRanking() {
+	public TelaRanking(MenuJogoAluno menu) {
 
 		banco.SelectRanking(conn);  
 
 		setSize(1024, 615);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setLocationRelativeTo(null);
 		this.setResizable(false);
 
@@ -76,8 +67,13 @@ public class TelaRanking extends JFrame {
 			model.addRow(new Object[] { p.getNome(), p.getValor() });
 
 		}
+		addWindowListener(new WindowAdapter() {
+			   public void windowClosing(WindowEvent evt) {
+				     menu.setVisivel();
+				     dispose();
+				   }
+				  });
 		
-
 		setVisible(true);
 
 	}

@@ -5,6 +5,7 @@ public class Pontuacao {
 	
 	private int valor;
 	private String nome;
+	private int idFase;
 	
 	public int getValor() {
 		return valor;
@@ -18,6 +19,13 @@ public class Pontuacao {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	public int getIdFase() {
+		return idFase;
+	}
+	public void setIdFase(int idFase) {
+		this.idFase = idFase;
+	}
+	
 	
 	
 

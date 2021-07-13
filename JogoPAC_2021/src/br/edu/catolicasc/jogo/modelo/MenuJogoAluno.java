@@ -67,7 +67,7 @@ public class MenuJogoAluno extends JFrame {
 		btRankingTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				new TelaRanking();
+				new TelaRanking(menu);
 				setVisivel();
 			}
 		});
@@ -76,7 +76,7 @@ public class MenuJogoAluno extends JFrame {
 		btRankingAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				new TelaRankingAluno();
+				new TelaRankingAluno(menu);
 				setVisivel();
 			}
 		});

@@ -269,8 +269,8 @@ public class MysqlUtil {
 
 	public List<Pontuacao> SelectRankingAluno(Connection conn) {
 		int idPessoa = UsuarioAtivo.getIdPessoa();
-		sql = "select NOME, PONTOS from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA =" + idPessoa
-				+ " AND a2.ID_PESSOA = a.ID_PESSOA AND p.ID_ALUNO =" + idPessoa + " order by PONTOS LIMIT 10";
+		sql = "select a.NOME, p.PONTOS,p.ID_FASE from PESSOA a, ALUNOS a2, PONTUACAO p where a.ID_PESSOA =" + idPessoa
+				+ " AND a2.ID_PESSOA = a.ID_PESSOA AND p.ID_ALUNO =" + idPessoa + " order by p.ID_FASE ASC";
 
 		List<Pontuacao> pontos = new ArrayList<>();
 
@@ -285,6 +285,7 @@ public class MysqlUtil {
 
 				ranking.setNome(resultSet.getString("NOME"));
 				ranking.setValor(resultSet.getInt("PONTOS"));
+				ranking.setIdFase(resultSet.getInt("ID_FASE"));
 
 				pontos.add(ranking);
 			}
