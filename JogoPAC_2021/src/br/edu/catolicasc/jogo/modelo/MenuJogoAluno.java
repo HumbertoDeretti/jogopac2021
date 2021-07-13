@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import br.edu.catolicasc.jogo.fase.Fase;
+import br.edu.catolicasc.parametros.UsuarioAtivo;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -22,22 +23,42 @@ public class MenuJogoAluno extends JFrame {
 	 */
 	private static final long serialVersionUID = 7168976433054476308L;
 	private JPanel contentPane;
-
+	private boolean ativo = false;
+	private boolean btJogarBOOL = true;
+	private int idFase = 1;
+	private JButton btJogar;
+	private MenuJogoAluno menu;
 	
 	public MenuJogoAluno() {
+		ativo = true;
+		menu = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1024, 728);
 		contentPane = new JPanel();
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
-				
-		JButton btJogar =  new JButtonJogo("Jogar");
-
+		try {
+			idFase = Integer.parseInt(UsuarioAtivo.getLastStage())+1;
+		} catch (Exception e) {
+			idFase = 1;
+		}
+		
+		
+		
+		btJogar =  new JButtonJogo("Jogar Fase "+ Integer.toString(idFase));
+		if(idFase>10) {
+			btJogar.setText("Em breve +");
+			btJogar.setForeground(Color.RED);
+			btJogar.setFont(new Font("Arial", Font.BOLD, 20));
+			btJogarBOOL = false;
+		}
 		btJogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(btJogarBOOL) {
+					new Fase(idFase,menu);
+					setVisivel();
+				}
 				
-				new Fase(10);
-				setVisible(false);
 			}
 		});
 		
@@ -47,7 +68,7 @@ public class MenuJogoAluno extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				new TelaRanking();
-				setVisible(false);
+				setVisivel();
 			}
 		});
 		
@@ -56,7 +77,7 @@ public class MenuJogoAluno extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				new TelaRankingAluno();
-				setVisible(false);
+				setVisivel();
 			}
 		});
 		
@@ -143,7 +164,20 @@ public class MenuJogoAluno extends JFrame {
 		setVisible(true);
 		
 	}
-	
+	public void setVisivel() {
+		if(ativo) {
+			ativo = false;
+		}else {
+			ativo = true;
+		}
+		UsuarioAtivo.Update();
+		idFase = Integer.parseInt(UsuarioAtivo.getLastStage())+1;
+		if(idFase>10) {
+			idFase=1;
+		}
+		btJogar.setText("Jogar Fase "+ Integer.toString(idFase));
+		setVisible(ativo);
+	}
 	private ImageIcon imageResource(String path,int w,int h) {
 		
 		ImageIcon img;

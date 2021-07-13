@@ -37,7 +37,7 @@ public class ComponentesUtils {
 
 	}
 	
-	public ImageIcon avatarResource(String path) {
+	public ImageIcon imageResourceAvatar(String path) {
 		ImageIcon img;
 		img = new ImageIcon(new ImageIcon(getClass().getResource("/resources_avatar/" + path)).getImage().getScaledInstance(Globais.LARGURA_AVATAR, Globais.ALTURA_AVATAR, Image.SCALE_SMOOTH));
 	

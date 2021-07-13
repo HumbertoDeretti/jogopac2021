@@ -27,7 +27,7 @@ public class UsuarioAtivo {
 	private static String nomeProf;
 	private static String nomeTurma;
 	private static String lastStage;
-	
+	private static String imgAvatar;
 	private static String usuario;
 
 	public UsuarioAtivo(String usuario) {
@@ -57,8 +57,13 @@ public class UsuarioAtivo {
 		UsuarioAtivo.nomeProf = list.get(index).get("NOME_PROFESSOR");
 		UsuarioAtivo.nomeTurma = list.get(index).get("NOME_TURMA");
 		UsuarioAtivo.lastStage =list.get(index).get("LAST_STAGE");
+		UsuarioAtivo.imgAvatar = list.get(index).get("FOTO_PATH");
 	}
 	
+	public static String getImgAvatar() {
+		return imgAvatar;
+	}
+
 	public static int getIdPessoa() {
 		return idPessoa;
 	}

@@ -8,7 +8,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
-import br.edu.catolicasc.jogo.fase.Fase;
 import br.edu.catolicasc.parametros.UsuarioAtivo;
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;

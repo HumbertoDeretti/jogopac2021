@@ -7,22 +7,19 @@ import java.util.LinkedList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import br.edu.catolicasc.jogo.modelo.MenuJogoAluno;
 import br.edu.catolicasc.parametros.Globais;
 import br.edu.catolicasc.parametros.UsuarioAtivo;
 import br.edu.catolicasc.services.ComponentesUtils;
 import br.edu.catolicasc.services.MysqlUtil;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JPanel;
-import javax.swing.JToggleButton;
-
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Fase extends JFrame {
 	/**
@@ -40,21 +37,24 @@ public class Fase extends JFrame {
 	private JPanel panelMid;
 	private JLabel lbPergunta;
 	private JLabel lbPontuacao;
+	private JLabel lbNomeUsuario;
+	private JLabel lbFase;
 	private JLabel lbImage;
-
+	private JLabel lbImageAvatar;
+	private JButton btSair;
 	private static LinkedList<Hashtable<String, String>> listFases;
 	private int idFasePlay;
+	private MenuJogoAluno menu;
 
 	private ArrayList<FasesList> fasesLista;
-
 	// Construtor
-	public Fase(int idFasePlay) {
+	public Fase(int idFasePlay,MenuJogoAluno menu) {
 		newStage(idFasePlay);
-
+		this.menu = menu;
 	}
 
 	private void newStage(int idFasePlay) {
-
+		Globais.PONTUACAO_INICIAL = 10;
 		this.idFasePlay = idFasePlay;
 
 		try {
@@ -68,47 +68,82 @@ public class Fase extends JFrame {
 	}
 
 	private void tela() {
-		painelRight = new JPanel();
-		panelTop = new JPanel();
-		panelBottom = new JPanel();
-		panelLeft = new JPanel();
-		panelMid = new JPanel();
-		lbPergunta = new JLabel("");
-		lbPergunta.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE_TITLE));
+		
+		initComponentesTela();
+		configComponentesTela();
+		
 		setTitle("Cerebelo - Jogo Lógico: Fase " + idFasePlay);
 		setResizable(false);
 		setSize(1024, 615);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-
+		
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		getContentPane().add(painelRight, BorderLayout.EAST);
-		painelRight.setLayout(new GridLayout(10, 1, 0, 0));
-
 		getContentPane().add(panelBottom, BorderLayout.SOUTH);
 		getContentPane().add(panelTop, BorderLayout.NORTH);
 		getContentPane().add(panelLeft, BorderLayout.WEST);
 		getContentPane().add(panelMid, BorderLayout.CENTER);
-
-		lbImage = new JLabel(cUtils.fasesResource(fasesLista.get(0).getiImgPath(), 800, 450));
-		lbImage.setHorizontalAlignment(SwingConstants.CENTER);
-		
-	
 		panelMid.add(lbImage);
-
-		JButton btSair = new JButton("Sair");
-
 		panelTop.add(lbPergunta);
+			
+		panelBottom.add(lbImageAvatar);
+		panelBottom.add(lbNomeUsuario);
+		panelBottom.add(lbFase);
+		panelBottom.add(lbPontuacao);
+		
 		panelBottom.add(btSair);
-
-		lbPontuacao = new JLabel("10");
-		panelLeft.add(lbPontuacao);
-
+ 
 		gerarRespostas();
-		lbPergunta.setText(fasesLista.get(0).getiPergunta());
+		
 
 	}
-
+	private void configComponentesTela() {
+		try {
+			painelRight.setLayout(new GridLayout(10, 4, 5, 5));
+			panelLeft.setLayout(new GridLayout(5, 1, 5, 5));
+			panelBottom.setLayout(new GridLayout(1, 10, 5, 5));
+			lbImage.setHorizontalAlignment(SwingConstants.CENTER);
+			lbPergunta.setText(fasesLista.get(0).getiPergunta());
+			lbFase.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE));
+			lbNomeUsuario.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE));
+			lbPontuacao.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE));
+			//lbPontuacao.setForeground(Color.CYAN);
+		} catch (Exception e) {
+			System.out.println("Erro na Configurações dos Componentes de Tela.");
+			System.out.println(e);
+		}
+		
+	}
+	private void initComponentesTela() {
+		try {
+			btSair = new JButton("Desistir");
+			btSair.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					System.out.println("Desistiu NOOB");
+					dispose();
+					menu.setVisivel();
+				}
+			});
+			painelRight = new JPanel();
+			panelTop = new JPanel();
+			panelBottom = new JPanel();
+			panelLeft = new JPanel();
+			panelMid = new JPanel();
+			lbPergunta = new JLabel("");
+			lbFase = new JLabel("Fase "+ Integer.toString(idFasePlay));
+			lbNomeUsuario = new JLabel("Jogador: " + UsuarioAtivo.getNome());
+			lbPergunta.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE_TITLE));
+			lbImage = new JLabel(cUtils.fasesResource(fasesLista.get(0).getiImgPath(), 800, 450));
+			lbImageAvatar = new JLabel(cUtils.imageResourceAvatar(UsuarioAtivo.getImgAvatar(), 80, 80));
+			lbPontuacao = new JLabel("Pontuação: 10");
+		} catch (Exception e) {
+			System.out.println("Erro na Inicialização dos Componentes de Tela.");
+			System.out.println(e);
+		}
+		
+	}
+	
 	private void carregarDados() {
 		UsuarioAtivo.Update();
 		faseDados();
@@ -117,11 +152,15 @@ public class Fase extends JFrame {
 	public void validar(int i) {
 		
 		if(Globais.getPONTUACAO_INICIAL().equals("0")) {
-			System.out.println("Game Over!!");
-			
+			menu.setVisivel();
+			dispose();
 		}else {
 			if (i == 0) {
-				System.exit(0);
+				bd.insertPontuacao(UsuarioAtivo.getIdPessoa(), idFasePlay, Globais.PONTUACAO_INICIAL, UsuarioAtivo.getNome());
+				menu.setVisivel();
+				dispose();
+				
+				
 			} else {
 				Globais.setPONTUACAO_INICIAL(1);
 				lbPontuacao.setText("0"+Globais.getPONTUACAO_INICIAL());
