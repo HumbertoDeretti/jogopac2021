@@ -34,7 +34,7 @@ public class Login extends JFrame {
 	@SuppressWarnings("unused")
 	private UsuarioAtivo userAtivo;
 	
-    private boolean FAST_LOGIN = true;
+    private boolean FAST_LOGIN = false;
     
 	public Login() {
 		
@@ -80,7 +80,7 @@ public class Login extends JFrame {
 							new MenuJogoAluno();
 						}
 						else if(!(UsuarioAtivo.getAluPerm()=="null")) {
-							System.out.println("ALUNO 84 - Login");
+						
 							try {
 								new MenuJogoAluno();
 							} catch (Exception e2) {
@@ -88,7 +88,7 @@ public class Login extends JFrame {
 							}
 							
 						}else {
-							System.out.println("AQUI FDP");
+							
 						}
 						
 					}
@@ -104,7 +104,8 @@ public class Login extends JFrame {
 		btLogin.setBounds(144, 373, 111, 77);
 		getContentPane().add(btLogin);
 		
-		txtLogin = new JTextField();
+		txtLogin = new JTextFieldPlaceholder("Login");
+		
 		if(FAST_LOGIN) {
 			txtLogin.setText("jonatha");
 		}
@@ -116,7 +117,7 @@ public class Login extends JFrame {
 		txtLogin.setOpaque(false);
 		txtLogin.setColumns(10);
 		
-		txtSenha = new JPasswordField();
+		txtSenha = new JPasswordFieldPlaceholder("Senha");
 		if(FAST_LOGIN) {
 			txtSenha.setText("master");
 		}
