@@ -24,6 +24,7 @@ public class JPasswordFieldPlaceholder extends JPasswordField {
 				}
 			}
 
+			@SuppressWarnings("deprecation")
 			@Override
 			public void focusLost(FocusEvent e) {
 				if (getText().isEmpty()) {

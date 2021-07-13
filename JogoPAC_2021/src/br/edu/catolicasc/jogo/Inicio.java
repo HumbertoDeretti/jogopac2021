@@ -1,9 +1,6 @@
 package br.edu.catolicasc.jogo;
 
-
 import br.edu.catolicasc.jogo.modelo.Login;
-
-
 
 public class Inicio {
 

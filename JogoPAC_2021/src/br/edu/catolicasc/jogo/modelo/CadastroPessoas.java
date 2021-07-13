@@ -25,10 +25,8 @@ public class CadastroPessoas extends JFrame {
 	private static final long serialVersionUID = 983030616361762662L;
 	private JTextField txtNomePessoa;
 	private JTextField txtDataNascimento;
-	@SuppressWarnings("unused")
 	private MysqlUtil bd = MysqlUtil.getInstance();
-	private static String sql;
-	private static String error;
+	
 	private ComponentesUtils cUtils = new ComponentesUtils();
 
 	public CadastroPessoas() {

@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import java.awt.Font;
-import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +33,7 @@ public class Login extends JFrame {
 	@SuppressWarnings("unused")
 	private UsuarioAtivo userAtivo;
 	
-    private boolean FAST_LOGIN = false;
+    private boolean FAST_LOGIN = true;
     private boolean FAST_LOGIN_PROF = false;
     
 	public Login() {
@@ -83,7 +82,7 @@ public class Login extends JFrame {
 						else if(!(UsuarioAtivo.getAluPerm()=="null")) {
 						
 							try {
-								//new MenuJogoAluno();
+								new MenuJogoAluno();
 							} catch (Exception e2) {
 								System.out.println("Erro Invoke class MenuJogoAluno");
 							}
