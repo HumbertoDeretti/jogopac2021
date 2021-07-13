@@ -31,6 +31,7 @@ public class TesteCadastroSerie extends JFrame {
 		setTitle("Cadastro de S\u00E9ries");
 		setResizable(false);
 		getContentPane().setLayout(null);
+		setLocationRelativeTo(null);
 		
 		JLabel lblNewLabel = new JLabel("Nome da S\u00E9rie:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
