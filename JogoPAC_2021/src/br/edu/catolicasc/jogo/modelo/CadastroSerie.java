@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
-public class TesteCadastroSerie extends JFrame {
+public class CadastroSerie extends JFrame {
 	/**
 	 * 
 	 */
@@ -24,7 +24,7 @@ public class TesteCadastroSerie extends JFrame {
     private MysqlUtil bd = MysqlUtil.getInstance();
   
     
-	public TesteCadastroSerie() {
+	public CadastroSerie() {
 		
 		setSize(new Dimension(1024, 615));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,7 +59,7 @@ public class TesteCadastroSerie extends JFrame {
 		getContentPane().add(btCadastrar);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon(TesteCadastroSerie.class.getResource("/resources/SalaDeAula.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(CadastroSerie.class.getResource("/resources/SalaDeAula.png")));
 		lblNewLabel_1.setSize(1024, 615);
 		//lblNewLabel_1.setBounds(0, 0, 700, 233);
 		getContentPane().add(lblNewLabel_1);

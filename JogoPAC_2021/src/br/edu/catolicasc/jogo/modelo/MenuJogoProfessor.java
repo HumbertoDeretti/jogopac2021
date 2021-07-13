@@ -37,7 +37,7 @@ public class MenuJogoProfessor extends JFrame {
 		btCadastroTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				new TesteCadastroSerie();
+				new CadastroSerie();
 				
 			}
 		});

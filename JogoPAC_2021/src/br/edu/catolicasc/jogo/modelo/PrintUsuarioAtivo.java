@@ -48,7 +48,7 @@ public class PrintUsuarioAtivo extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TesteCadastroSerie();
+				new CadastroSerie();
 			}
 		});
 		btnNewButton.setBounds(331, 72, 190, 41);
