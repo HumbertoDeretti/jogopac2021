@@ -174,9 +174,15 @@ public class MenuJogoAluno extends JFrame {
 		UsuarioAtivo.Update();
 		idFase = Integer.parseInt(UsuarioAtivo.getLastStage())+1;
 		if(idFase>10) {
-			idFase=1;
+			btJogar.setText("Em breve +");
+			btJogar.setForeground(Color.RED);
+			btJogar.setFont(new Font("Arial", Font.BOLD, 20));
+			btJogarBOOL = false;
+		}else {
+			btJogar.setText("Jogar Fase "+ Integer.toString(idFase));
 		}
-		btJogar.setText("Jogar Fase "+ Integer.toString(idFase));
+		
+		
 		setVisible(ativo);
 	}
 	private ImageIcon imageResource(String path,int w,int h) {
