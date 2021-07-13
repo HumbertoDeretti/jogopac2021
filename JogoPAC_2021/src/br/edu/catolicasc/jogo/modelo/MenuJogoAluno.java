@@ -65,7 +65,7 @@ public class MenuJogoAluno extends JFrame {
 		btRankingTurma.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 18));
 		btRankingTurma.setBounds(198, 275, 150, 60);
 		btRankingTurma.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		btRankingTurma.setOpaque(false);
+		btRankingTurma.setOpaque(false); 
 		contentPane.add(btRankingTurma);
 		
 		//btRankingAluno.setForeground(new Color(255, 255, 255));

@@ -41,7 +41,7 @@ public class ButtonRespostas extends JButton implements ActionListener, MouseLis
 		//setText("<html><hr /><br /><img src=" + "file:Botao1.png" + "/><br />Texto<br /><hr /></html>");
 		setVerticalAlignment(javax.swing.SwingConstants.TOP);
 	    setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-	 
+	  
 		setOpaque(false);//BOTAO SEM FUNDO
 		setContentAreaFilled(false);//BOTAO SEM FUNDO
 		setBorderPainted(false);//BOTAO SEM FUNDO
