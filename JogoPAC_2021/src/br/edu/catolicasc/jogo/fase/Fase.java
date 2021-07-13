@@ -133,7 +133,11 @@ public class Fase extends JFrame {
 			lbPergunta = new JLabel("");
 			lbFase = new JLabel("Fase "+ Integer.toString(idFasePlay));
 			lbNomeUsuario = new JLabel("Jogador: " + UsuarioAtivo.getNome());
-			lbPergunta.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, Globais.FONT_SIZE_TITLE));
+			int tamFont = Globais.FONT_SIZE_TITLE;
+			if(fasesLista.get(0).getiPergunta().length() > 100) {
+				tamFont-=5;
+			}
+			lbPergunta.setFont(new Font(Globais.FONT_NAME, Font.PLAIN, tamFont));
 			lbImage = new JLabel(cUtils.fasesResource(fasesLista.get(0).getiImgPath(), 800, 450));
 			lbImageAvatar = new JLabel(cUtils.imageResourceAvatar(UsuarioAtivo.getImgAvatar(), 80, 80));
 			lbPontuacao = new JLabel("Pontuação: 10");
